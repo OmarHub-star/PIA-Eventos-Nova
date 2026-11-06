@@ -1,0 +1,10 @@
+.git
+.venv
+__pycache__
+.env
+*.db
+.coverage
+.pytest_cache
+docs/fuentes
+docs/evidencias/htmlcov
+entrega

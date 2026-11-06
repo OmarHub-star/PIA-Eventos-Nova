@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="511" height="240" preserveAspectRatio="xMinYMin meet" viewBox="0 0 511 240" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="511" height="240"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-240)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="5" y="50" width="160" height="175" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="70.5859375" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">Event</text>
+			<text x="14" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)">client_id, fecha, estado</text>
+			<text x="14" y="176" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,352) scale(1,-1)">Contrato y pagos</text>
+			<text x="14" y="163" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,326) scale(1,-1)">Cambios y adicionales</text>
+			<text x="14" y="150" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,300) scale(1,-1)">sign() / pay()</text>
+			<text x="14" y="137" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,274) scale(1,-1)">apply_change()</text>
+			<text x="14" y="124" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,248) scale(1,-1)">start() / finish() / close()</text>
+			<rect x="180" y="50" width="155" height="175" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="235.32080078125" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">Proposal</text>
+			<text x="189" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)">event_id y estado</text>
+			<text x="189" y="176" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,352) scale(1,-1)">Versiones históricas</text>
+			<text x="189" y="163" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,326) scale(1,-1)">Líneas y Money</text>
+			<text x="189" y="150" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,300) scale(1,-1)">revise() / send()</text>
+			<text x="189" y="137" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,274) scale(1,-1)">accept() / reject()</text>
+			<rect x="350" y="50" width="155" height="175" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="385.433349609375" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">SupplierRequest</text>
+			<text x="359" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)">event_id / supplier_id</text>
+			<text x="359" y="176" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,352) scale(1,-1)">Fecha y plazo 48h</text>
+			<text x="359" y="163" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,326) scale(1,-1)">Estado / reemplazo</text>
+			<text x="359" y="150" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,300) scale(1,-1)">respond() / expire()</text>
+			<text x="359" y="137" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,274) scale(1,-1)">cancel()</text>
+			<path d="M 180,70 L 165,70 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="165 70, 170.4027 67.39021, 170.4027 72.60979" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="176.5" y="75.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,150) scale(1,-1)">ID</text>
+			<path d="M 350,35 L 85,35 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="85 35, 90.40268 32.39021, 90.40268 37.60979" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="221.5" y="40.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,80) scale(1,-1)">Referencia a Event por ID</text>
+			<path d="M 85,35 L 85,50 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="85 50, 82.39021 44.59732, 87.60979 44.59732" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

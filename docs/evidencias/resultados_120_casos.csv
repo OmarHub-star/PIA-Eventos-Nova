@@ -1,0 +1,121 @@
+﻿caso_id,operacion_id,tratamiento,regla_ejecutada,esperado,observado,resultado_alumno
+EVE-T001,EVE-O001,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B001,EVE-O001,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T002,EVE-O002,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B002,EVE-O002,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T003,EVE-O003,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B003,EVE-O003,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T004,EVE-O004,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B004,EVE-O004,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T005,EVE-O005,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B005,EVE-O005,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T006,EVE-O006,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B006,EVE-O006,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T007,EVE-O007,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B007,EVE-O007,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T008,EVE-O008,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B008,EVE-O008,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T009,EVE-O009,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B009,EVE-O009,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T010,EVE-O010,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B010,EVE-O010,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T011,EVE-O011,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B011,EVE-O011,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T012,EVE-O012,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B012,EVE-O012,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T013,EVE-O013,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B013,EVE-O013,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",RECHAZADO,RECHAZADO,PASS
+EVE-T014,EVE-O014,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B014,EVE-O014,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T015,EVE-O015,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B015,EVE-O015,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T016,EVE-O016,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B016,EVE-O016,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T017,EVE-O017,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B017,EVE-O017,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T018,EVE-O018,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B018,EVE-O018,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T019,EVE-O019,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B019,EVE-O019,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T020,EVE-O020,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B020,EVE-O020,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T021,EVE-O021,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B021,EVE-O021,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T022,EVE-O022,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B022,EVE-O022,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T023,EVE-O023,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B023,EVE-O023,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T024,EVE-O024,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B024,EVE-O024,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T025,EVE-O025,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B025,EVE-O025,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T026,EVE-O026,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B026,EVE-O026,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T027,EVE-O027,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B027,EVE-O027,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T028,EVE-O028,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B028,EVE-O028,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T029,EVE-O029,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B029,EVE-O029,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T030,EVE-O030,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B030,EVE-O030,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T031,EVE-O031,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B031,EVE-O031,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T032,EVE-O032,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B032,EVE-O032,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T033,EVE-O033,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B033,EVE-O033,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T034,EVE-O034,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B034,EVE-O034,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T035,EVE-O035,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B035,EVE-O035,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T036,EVE-O036,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B036,EVE-O036,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T037,EVE-O037,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B037,EVE-O037,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T038,EVE-O038,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B038,EVE-O038,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T039,EVE-O039,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B039,EVE-O039,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",RECHAZADO,RECHAZADO,PASS
+EVE-T040,EVE-O040,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B040,EVE-O040,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T041,EVE-O041,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B041,EVE-O041,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T042,EVE-O042,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B042,EVE-O042,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T043,EVE-O043,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B043,EVE-O043,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T044,EVE-O044,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B044,EVE-O044,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T045,EVE-O045,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B045,EVE-O045,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T046,EVE-O046,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B046,EVE-O046,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T047,EVE-O047,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B047,EVE-O047,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T048,EVE-O048,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B048,EVE-O048,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T049,EVE-O049,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B049,EVE-O049,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T050,EVE-O050,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B050,EVE-O050,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T051,EVE-O051,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B051,EVE-O051,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T052,EVE-O052,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B052,EVE-O052,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T053,EVE-O053,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B053,EVE-O053,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T054,EVE-O054,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B054,EVE-O054,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T055,EVE-O055,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B055,EVE-O055,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T056,EVE-O056,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,False,False,PASS
+EVE-B056,EVE-O056,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T057,EVE-O057,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B057,EVE-O057,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T058,EVE-O058,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B058,EVE-O058,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T059,EVE-O059,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B059,EVE-O059,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS
+EVE-T060,EVE-O060,CONSERVADO_DIAGNOSTICO,Precondiciones diagnósticas AND. autorizado CSV no sustituye autenticación.,True,True,PASS
+EVE-B060,EVE-O060,ADAPTADO_BRD,"BR01: contrato y anticipo 30%. Sustituye VIP, ajeno al BRD.",CONFIRMADO,CONFIRMADO,PASS

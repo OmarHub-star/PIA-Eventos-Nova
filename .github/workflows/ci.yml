@@ -1,0 +1,70 @@
+name: Eventos Nova CI y CD
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: nova
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: nova_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U nova -d nova_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql+psycopg://nova:ci-only-password@localhost:5432/nova_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: ruff check src tests scripts
+      - run: ruff format --check src tests scripts
+      - run: python -m pytest -q --cov=src --cov-fail-under=80 --cov-report=xml --junitxml=junit.xml
+      - run: python scripts/evaluate_csv.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: resultados-calidad
+          path: |
+            coverage.xml
+            junit.xml
+            docs/evidencias/*csv
+  containers:
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+      - run: python scripts/init_env.py
+      - run: docker compose --profile quality up --build --abort-on-container-exit --exit-code-from tests
+      - if: always()
+        run: docker compose --profile quality down -v
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [quality, containers]
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    env:
+      RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+    steps:
+      - name: Solicitar despliegue tras pruebas
+        if: env.RENDER_DEPLOY_HOOK != ''
+        run: |
+          python - <<'PY'
+          import os, urllib.request
+          request = urllib.request.Request(os.environ['RENDER_DEPLOY_HOOK'], method='POST')
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert response.status < 300
+          PY
+      - name: Registrar falta de destino
+        if: env.RENDER_DEPLOY_HOOK == ''
+        run: echo "Sin destino configurado. CI completa; despliegue pendiente."

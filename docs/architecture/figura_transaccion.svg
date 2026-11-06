@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="511" height="240" preserveAspectRatio="xMinYMin meet" viewBox="0 0 511 240" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="511" height="240"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-240)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="25" y="185" width="105" height="40" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="69.044921875" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">API</text>
+			<text x="34" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)"></text>
+			<path d="M 77,180 L 77,10 Z" style="stroke: rgb(77%,83%,87%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<rect x="155" y="185" width="105" height="40" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="175.96484375" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">NovaService</text>
+			<text x="164" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)"></text>
+			<path d="M 207,180 L 207,10 Z" style="stroke: rgb(77%,83%,87%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<rect x="285" y="185" width="105" height="40" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="316.60400390625" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">Dominio</text>
+			<text x="294" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)"></text>
+			<path d="M 337,180 L 337,10 Z" style="stroke: rgb(77%,83%,87%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<rect x="415" y="185" width="105" height="40" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="444.21337890625" y="207" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,414) scale(1,-1)">SQL/UoW</text>
+			<text x="424" y="189" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,378) scale(1,-1)"></text>
+			<path d="M 467,180 L 467,10 Z" style="stroke: rgb(77%,83%,87%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<path d="M 78,160 L 207,160 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="207 160, 201.5973 162.6098, 201.5973 157.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="146.5" y="165.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,330) scale(1,-1)">approve + ADMIN</text>
+			<path d="M 207,132 L 337,132 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="337 132, 331.5973 134.6098, 331.5973 129.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="276.0" y="137.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,274) scale(1,-1)">aplicar y versionar</text>
+			<path d="M 207,104 L 467,104 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="467 104, 461.5973 106.6098, 461.5973 101.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="341.0" y="109.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,218) scale(1,-1)">guardar + emitir</text>
+			<path d="M 467,76 L 207,76 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="207 76, 212.4027 73.39021, 212.4027 78.60979" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="341.0" y="81.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,162) scale(1,-1)">commit o rollback</text>
+			<path d="M 207,48 L 78,48 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="78 48, 83.40268 45.39021, 83.40268 50.60979" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<text x="146.5" y="53.0" style="font-family: DV; font-size: 7px;fill: rgb(32%,40%,45%); stroke:none;" transform="translate(0,106) scale(1,-1)">resultado coherente</text>
+		</g>
+	</g>
+</svg>

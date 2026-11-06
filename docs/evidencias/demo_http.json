@@ -1,0 +1,283 @@
+{
+  "executed_at": "2026-11-06T16:54:27.303140-06:00",
+  "base_url": "http://127.0.0.1:8000",
+  "event_id": "DEMO-98368290fe",
+  "steps": [
+    {
+      "method": "POST",
+      "path": "/events",
+      "role": "COORDINADOR",
+      "status": 201,
+      "expected": 201,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "BORRADOR",
+        "supplier_cost": "0.00",
+        "paid": "0.00",
+        "balance": "5890.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/send",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "BORRADOR",
+        "supplier_cost": "0.00",
+        "paid": "0.00",
+        "balance": "5890.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/accept",
+      "role": "CLIENTE",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "ACEPTADO",
+        "supplier_cost": "0.00",
+        "paid": "0.00",
+        "balance": "5890.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/accept",
+      "role": "CLIENTE",
+      "status": 409,
+      "expected": 409,
+      "result": {
+        "detail": "Solo se acepta una propuesta enviada"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/sign",
+      "role": "CLIENTE",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "ACEPTADO",
+        "supplier_cost": "0.00",
+        "paid": "0.00",
+        "balance": "5890.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/pay",
+      "role": "ADMIN",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "CONFIRMADO",
+        "supplier_cost": "0.00",
+        "paid": "1767.00",
+        "balance": "4123.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/requests",
+      "role": "COORDINADOR",
+      "status": 201,
+      "expected": 201,
+      "result": {
+        "id": "ad08cb12-67ab-4d34-8bd4-48ed00570a90",
+        "state": "PENDIENTE"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/requests/ad08cb12-67ab-4d34-8bd4-48ed00570a90/respond",
+      "role": "PROVEEDOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "ad08cb12-67ab-4d34-8bd4-48ed00570a90",
+        "state": "CONFIRMADO"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/change",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "5890.00",
+        "state": "CONFIRMADO",
+        "supplier_cost": "1000.00",
+        "paid": "1767.00",
+        "balance": "4123.00",
+        "change_id": "625ecb0e-d789-417c-b080-1d997ddacd55"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/approve",
+      "role": "ADMIN",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6005.00",
+        "state": "CONFIRMADO",
+        "supplier_cost": "1000.00",
+        "paid": "1767.00",
+        "balance": "4238.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/start",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6005.00",
+        "state": "EN_EJECUCION",
+        "supplier_cost": "1000.00",
+        "paid": "1767.00",
+        "balance": "4238.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/extra",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "EN_EJECUCION",
+        "supplier_cost": "1000.00",
+        "paid": "1767.00",
+        "balance": "4338.00",
+        "extra_id": "e78ca13a-b2e2-434d-94e2-6adbbd1ccb1a"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/deliver_extra",
+      "role": "COORDINADOR",
+      "status": 422,
+      "expected": 422,
+      "result": {
+        "detail": "Se requiere ejecución y pago previo del adicional"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/pay_extra",
+      "role": "ADMIN",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "EN_EJECUCION",
+        "supplier_cost": "1000.00",
+        "paid": "1867.00",
+        "balance": "4238.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/deliver_extra",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "EN_EJECUCION",
+        "supplier_cost": "1000.00",
+        "paid": "1867.00",
+        "balance": "4238.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/finish",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "FINALIZADO",
+        "supplier_cost": "1000.00",
+        "paid": "1867.00",
+        "balance": "4238.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/close",
+      "role": "COORDINADOR",
+      "status": 422,
+      "expected": 422,
+      "result": {
+        "detail": "No puede cerrar con saldo o información pendiente"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/pay",
+      "role": "ADMIN",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "FINALIZADO",
+        "supplier_cost": "1000.00",
+        "paid": "6105.00",
+        "balance": "0.00"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/events/DEMO-98368290fe/close",
+      "role": "COORDINADOR",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "id": "DEMO-98368290fe",
+        "total": "6105.00",
+        "state": "CERRADO",
+        "supplier_cost": "1000.00",
+        "paid": "6105.00",
+        "balance": "0.00"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/events/DEMO-98368290fe/profitability",
+      "role": "ADMIN",
+      "status": 200,
+      "expected": 200,
+      "result": {
+        "income": "6105.00",
+        "supplier_cost": "1000.00",
+        "margin": "5105.00"
+      }
+    }
+  ]
+}

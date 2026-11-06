@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3300" height="850" viewBox="0 0 3300 850">
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#526b78"/></marker></defs>
+<rect width="3300" height="850" fill="white"/>
+<rect x="50.0" y="30.0" width="3220.0" height="190.0" fill="#fff" stroke="#a9bdc9"/>
+<text x="80" y="60.0" font-family="sans-serif" font-size="22" fill="#12344a">Cliente</text>
+<rect x="50.0" y="220.0" width="3220.0" height="190.0" fill="#f2f7f9" stroke="#a9bdc9"/>
+<text x="80" y="250.0" font-family="sans-serif" font-size="22" fill="#12344a">Coordinador</text>
+<rect x="50.0" y="410.0" width="3220.0" height="190.0" fill="#fff" stroke="#a9bdc9"/>
+<text x="80" y="440.0" font-family="sans-serif" font-size="22" fill="#12344a">Administración</text>
+<rect x="50.0" y="600.0" width="3220.0" height="190.0" fill="#f2f7f9" stroke="#a9bdc9"/>
+<text x="80" y="630.0" font-family="sans-serif" font-size="22" fill="#12344a">Proveedor</text>
+<polyline points="132.0,141.0 185.0,156.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="320.0,156.0 340.0,156.0 340.0,346.0 350.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="485.0,346.0 505.0,346.0 505.0,156.0 520.0,156.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="655.0,156.0 690.0,149.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="719.0,178.0 719.0,417.0 417.5,417.0 417.5,382.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="723.0" y="411.0" font-family="sans-serif" font-size="15" fill="#526b78">No, revisar</text>
+<polyline points="748.0,149.0 820.0,156.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="824.0" y="150.0" font-family="sans-serif" font-size="15" fill="#526b78">Sí</text>
+<polyline points="955.0,156.0 975.0,156.0 975.0,536.0 990.0,536.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="1125.0,536.0 1160.0,529.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="1189.0,558.0 1189.0,607.0 1057.5,607.0 1057.5,572.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1193.0" y="601.0" font-family="sans-serif" font-size="15" fill="#526b78">No</text>
+<polyline points="1218.0,529.0 1238.0,529.0 1238.0,346.0 1310.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1242.0" y="523.0" font-family="sans-serif" font-size="15" fill="#526b78">Sí</text>
+<polyline points="1445.0,346.0 1465.0,346.0 1465.0,726.0 1480.0,726.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="1615.0,726.0 1650.0,719.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="1708.0,719.0 1728.0,719.0 1728.0,346.0 1830.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1732.0" y="713.0" font-family="sans-serif" font-size="15" fill="#526b78">Sí</text>
+<polyline points="1679.0,748.0 1679.0,783.0 1717.5,783.0 1717.5,382.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1683.0" y="777.0" font-family="sans-serif" font-size="15" fill="#526b78">Rechazo</text>
+<polyline points="1528.0,779.0 1528.0,814.0 1547.5,814.0 1547.5,382.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1532.0" y="808.0" font-family="sans-serif" font-size="15" fill="#526b78">Vencimiento</text>
+<polyline points="1615.0,346.0 1650.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="1717.5,382.0 1717.5,417.0 1377.5,417.0 1377.5,382.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="1721.5" y="411.0" font-family="sans-serif" font-size="15" fill="#526b78">Nueva solicitud</text>
+<polyline points="1965.0,346.0 2000.0,339.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="2029.0,368.0 2029.0,417.0 1717.5,417.0 1717.5,382.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="2033.0" y="411.0" font-family="sans-serif" font-size="15" fill="#526b78">Canceló</text>
+<polyline points="2058.0,339.0 2160.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="2164.0" y="340.0" font-family="sans-serif" font-size="15" fill="#526b78">Sí</text>
+<polyline points="2295.0,346.0 2330.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="2465.0,346.0 2500.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="2635.0,346.0 2655.0,346.0 2655.0,536.0 2670.0,536.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="2805.0,536.0 2840.0,529.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<polyline points="2869.0,558.0 2869.0,607.0 2737.5,607.0 2737.5,572.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="2873.0" y="601.0" font-family="sans-serif" font-size="15" fill="#526b78">No</text>
+<polyline points="2898.0,529.0 2918.0,529.0 2918.0,346.0 3000.0,346.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<text x="2922.0" y="523.0" font-family="sans-serif" font-size="15" fill="#526b78">Sí</text>
+<polyline points="3135.0,346.0 3180.0,331.0" fill="none" stroke="#8da6b5" stroke-width="2" marker-end="url(#arr)"/>
+<ellipse cx="111.0" cy="141.0" rx="21.0" ry="21.0" fill="#e3f4eb" stroke="#257a65" stroke-width="2"/>
+<text x="111.0" y="141.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Solicitud</text>
+<rect x="185.0" y="120.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="252.5" y="147.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Proporcionar</text>
+<text x="252.5" y="165.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">requisitos</text>
+<rect x="350.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="417.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Preparar</text>
+<text x="417.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">propuesta V1.0</text>
+<rect x="520.0" y="120.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="587.5" y="147.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Revisar</text>
+<text x="587.5" y="165.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">propuesta</text>
+<polygon points="719.0,120.0 748.0,149.0 719.0,178.0 690.0,149.0" fill="#fff3d6" stroke="#af842e" stroke-width="2"/>
+<text x="719.0" y="149.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">¿Acepta?</text>
+<rect x="820.0" y="120.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="887.5" y="147.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Registrar</text>
+<text x="887.5" y="165.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">contrato</text>
+<rect x="990.0" y="500.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1057.5" y="527.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Registrar</text>
+<text x="1057.5" y="545.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">anticipo</text>
+<polygon points="1189.0,500.0 1218.0,529.0 1189.0,558.0 1160.0,529.0" fill="#fff3d6" stroke="#af842e" stroke-width="2"/>
+<text x="1189.0" y="529.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">¿Alcanza 30%?</text>
+<rect x="1310.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1377.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Solicitar</text>
+<text x="1377.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">proveedor</text>
+<rect x="1480.0" y="690.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1547.5" y="717.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Confirmar o</text>
+<text x="1547.5" y="735.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">rechazar</text>
+<polygon points="1679.0,690.0 1708.0,719.0 1679.0,748.0 1650.0,719.0" fill="#fff3d6" stroke="#af842e" stroke-width="2"/>
+<text x="1679.0" y="719.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">¿Confirma?</text>
+<rect x="1650.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1717.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Gestionar Backup</text>
+<text x="1717.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">y sustitución</text>
+<rect x="1480.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1547.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Registrar alerta</text>
+<text x="1547.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">a Coordinación</text>
+<rect x="1830.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="1897.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Gestionar</text>
+<text x="1897.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">cambios</text>
+<text x="1897.5" y="378.0" font-size="18" text-anchor="middle">+</text>
+<polygon points="2029.0,310.0 2058.0,339.0 2029.0,368.0 2000.0,339.0" fill="#fff3d6" stroke="#af842e" stroke-width="2"/>
+<text x="2029.0" y="330.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">¿Proveedor</text>
+<text x="2029.0" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">vigente?</text>
+<rect x="2160.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="2227.5" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Iniciar</text>
+<text x="2227.5" y="346.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">ejecución en</text>
+<text x="2227.5" y="364.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">fecha</text>
+<rect x="2330.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="2397.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Resolver</text>
+<text x="2397.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">adicionales</text>
+<text x="2397.5" y="378.0" font-size="18" text-anchor="middle">+</text>
+<rect x="2500.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="2567.5" y="346.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Finalizar evento</text>
+<rect x="2670.0" y="500.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="2737.5" y="527.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Liquidar saldo</text>
+<text x="2737.5" y="545.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">restante</text>
+<polygon points="2869.0,500.0 2898.0,529.0 2869.0,558.0 2840.0,529.0" fill="#fff3d6" stroke="#af842e" stroke-width="2"/>
+<text x="2869.0" y="529.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">¿Saldo cero?</text>
+<rect x="3000.0" y="310.0" width="135.0" height="72.0" rx="8" fill="white" stroke="#346b8b" stroke-width="2"/>
+<text x="3067.5" y="337.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Registrar acta y</text>
+<text x="3067.5" y="355.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">cerrar</text>
+<ellipse cx="3201.0" cy="331.0" rx="21.0" ry="21.0" fill="#e3f4eb" stroke="#257a65" stroke-width="4"/>
+<text x="3201.0" y="331.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">Cerrado</text>
+<ellipse cx="1528.0" cy="761.0" rx="18.0" ry="18.0" fill="#e3f4eb" stroke="#257a65" stroke-width="2"/>
+<text x="1528.0" y="761.0" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#12344a">48 horas</text>
+</svg>

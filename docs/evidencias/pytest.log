@@ -1,0 +1,46 @@
+........................................................................ [ 26%]
+........................................................................ [ 53%]
+...........................s............................................ [ 80%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+../../.deps/starlette/testclient.py:37
+  /workspace/scratch/400cfd565dba/.deps/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /workspace/scratch/400cfd565dba/deliverables/EventosNova-PIA/docs/evidencias/junit.xml -
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.14-final-0 _______________
+
+Name                              Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------
+src/__init__.py                       0      0      0      0   100%
+src/api/__init__.py                   0      0      0      0   100%
+src/api/main.py                     107      1     16      3    97%   24, 42->48, 53->57
+src/api/schemas.py                   57      0      0      0   100%
+src/application/__init__.py           0      0      0      0   100%
+src/application/ports.py              7      1      0      0    86%   11
+src/application/security.py          15      0      6      0   100%
+src/application/services.py         230      6     86      9    95%   52, 145, 185->195, 188->187, 230, 271, 309, 312->325, 324
+src/domain/__init__.py                0      0      0      0   100%
+src/domain/errors.py                  8      0      0      0   100%
+src/domain/event.py                 148      3     62      3    97%   133, 135, 148
+src/domain/policies.py               15      0      2      0   100%
+src/domain/proposal.py               42      1     12      1    96%   53
+src/domain/specifications.py         41      0      2      0   100%
+src/domain/state_machine.py           6      0      2      0   100%
+src/domain/supplier.py               46      0      8      0   100%
+src/domain/value_objects.py          42      0      8      0   100%
+src/infrastructure/__init__.py        0      0      0      0   100%
+src/infrastructure/database.py       68      0     14      1    99%   52->56
+src/infrastructure/fixtures.py       38      0     10      0   100%
+src/infrastructure/scheduler.py      12      0      0      0   100%
+-----------------------------------------------------------------------------
+TOTAL                               882     12    228     17    97%
+Coverage HTML written to dir docs/evidencias/htmlcov
+Coverage XML written to file docs/evidencias/coverage.xml
+Coverage JSON written to file docs/evidencias/coverage.json
+Required test coverage of 80% reached. Total coverage: 97.39%
+=========================== short test summary info ============================
+SKIPPED [1] tests/integration/test_external_runtime.py:13: PostgreSQL no configurado en este entorno
+269 passed, 1 skipped, 1 warning in 5.17s

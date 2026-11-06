@@ -1,0 +1,22 @@
+{
+  "prepared_date": "2026-11-06",
+  "python": "3.12.14",
+  "tests": 270,
+  "passed": 269,
+  "skipped": 1,
+  "failures": 0,
+  "coverage_percent": 97.39,
+  "covered_lines": 870,
+  "statements": 882,
+  "covered_branches": 211,
+  "branches": 228,
+  "http_requests": 20,
+  "csv_cases": 120,
+  "csv_transitions": 20,
+  "ruff": "PASS",
+  "sqlite": "VERIFICADO",
+  "postgresql": "PENDIENTE_SERVICIO",
+  "docker_compose": "PENDIENTE_ENTORNO",
+  "github_actions": "PENDIENTE_REPOSITORIO",
+  "public_deployment": "PENDIENTE_DESTINO"
+}

@@ -1,0 +1,16 @@
+﻿historia,reglas_brd,componente,api,prueba,archivo_prueba,evidencia
+US01,"BN02, BR07","Event, Proposal.revise",POST /events,test_US07_revision_history_and_duplicate_accept,tests/integration/test_api.py,docs/evidencias/junit.xml
+US02,BR07,"Proposal.accept, Event.accept",POST /events/{id}/accept,test_US07_revision_history_and_duplicate_accept,tests/integration/test_api.py,docs/evidencias/junit.xml
+US03,BR01,Event.pay,POST /events/{id}/pay,test_BR01_30_percent_boundary,tests/unit/test_rules.py,docs/evidencias/junit.xml
+US04,"BN03, BN06","SupplierRequest, NovaService.request_supplier",POST /events/{id}/requests,test_US01_US15_full_business_cycle,tests/integration/test_api.py,docs/evidencias/junit.xml
+US05,BR02,SupplierRequest.respond,POST /requests/{id}/respond,test_BR02_continuous_hours,tests/unit/test_rules.py,docs/evidencias/junit.xml
+US06,"BR02, RNF07","SupplierRequest.expire, expiry_loop",Temporizador y POST /requests/expire,test_US06_48_hours_and_expiration_idempotence,tests/integration/test_api.py,docs/evidencias/junit.xml
+US07,"BR07, BR10",Proposal.revise,POST /events/{id}/revise,test_US07_revision_history_and_duplicate_accept,tests/integration/test_api.py,docs/evidencias/junit.xml
+US08,"RNF07, RNF08","CambioAplicado, NovaService.apply_change",POST /events/{id}/change y GET /events/{id}/audit,test_US08_US10_changes_authorization_and_notification,tests/integration/test_api.py,docs/evidencias/junit.xml
+US09,BR03,"ChangePolicy.evaluate, Event.request_change",POST /events/{id}/change,test_client_change_waits_for_commercial_review,tests/integration/test_api.py,docs/evidencias/junit.xml
+US10,BR04,"ChangePolicy, Event.apply_change/reject_change",POST /events/{id}/approve y reject_change,test_US08_US10_changes_authorization_and_notification,tests/integration/test_api.py,docs/evidencias/junit.xml
+US11,"BR06, BN08","SupplierRequest.cancel, request_supplier",POST /requests/{id}/cancel y POST /events/{id}/requests,test_US11_backup_replacement_and_booking,tests/integration/test_api.py,docs/evidencias/junit.xml
+US12,BN05,NovaService.profitability,GET /events/{id}/profitability,test_US01_US15_full_business_cycle,tests/integration/test_api.py,docs/evidencias/junit.xml
+US13,"BR05, BR08",Event.add_extra/pay_extra/deliver_extra,"POST /events/{id}/extra, pay_extra, deliver_extra",test_BR05_BR08_extra_requires_payment_and_trace,tests/unit/test_rules.py,docs/evidencias/junit.xml
+US14,"BR09, H1 U3","Event.pay, balance",POST /events/{id}/pay,test_post_event_liquidation_follows_U3_H1,tests/integration/test_api.py,docs/evidencias/junit.xml
+US15,"BR09, BR10","CAN_CLOSE, Event.close",POST /events/{id}/close,test_US01_US15_full_business_cycle,tests/integration/test_api.py,docs/evidencias/junit.xml

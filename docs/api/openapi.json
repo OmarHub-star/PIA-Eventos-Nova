@@ -1,0 +1,1980 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Eventos Nova - PIA Equipo 16",
+    "description": "Propuestas, contratación, proveedores, cambios y cierre. Importes en MXN. Autenticación Bearer por usuario. Las alertas quedan en el registro interno de eventos.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Operación"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "tags": [
+          "Identidad"
+        ],
+        "summary": "Me",
+        "operationId": "me_me_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/catalogs/{kind}": {
+      "get": {
+        "tags": [
+          "Catálogos"
+        ],
+        "summary": "Catalog",
+        "operationId": "catalog_catalogs__kind__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "kind",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Kind"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "List Events",
+        "operationId": "list_events_events_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Create Event",
+        "operationId": "create_event_events_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Datos o regla inválidos"
+          },
+          "409": {
+            "description": "Identificador duplicado"
+          },
+          "404": {
+            "description": "Referencia inexistente"
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/events/{event_id}": {
+      "get": {
+        "tags": [
+          "Eventos"
+        ],
+        "summary": "Get Event",
+        "operationId": "get_event_events__event_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/{event_id}/audit": {
+      "get": {
+        "tags": [
+          "Auditoría"
+        ],
+        "summary": "Audit",
+        "operationId": "audit_events__event_id__audit_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/{event_id}/profitability": {
+      "get": {
+        "tags": [
+          "Administración"
+        ],
+        "summary": "Profitability",
+        "operationId": "profitability_events__event_id__profitability_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/{event_id}/send": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Send",
+        "operationId": "event_send_events__event_id__send_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/accept": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Accept",
+        "operationId": "event_accept_events__event_id__accept_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/reject": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Reject",
+        "operationId": "event_reject_events__event_id__reject_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reason"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/sign": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Sign",
+        "operationId": "event_sign_events__event_id__sign_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/pay": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Pay",
+        "operationId": "event_pay_events__event_id__pay_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Payment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/revise": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Revise",
+        "operationId": "event_revise_events__event_id__revise_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Revision"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/change": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Change",
+        "operationId": "event_change_events__event_id__change_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Change"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/approve": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Approve",
+        "operationId": "event_approve_events__event_id__approve_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Approval"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/reject_change": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Reject Change",
+        "operationId": "event_reject_change_events__event_id__reject_change_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rejection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/extra": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Extra",
+        "operationId": "event_extra_events__event_id__extra_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Extra"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/pay_extra": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Pay Extra",
+        "operationId": "event_pay_extra_events__event_id__pay_extra_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtraPayment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/deliver_extra": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Deliver Extra",
+        "operationId": "event_deliver_extra_events__event_id__deliver_extra_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtraId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/start": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Start",
+        "operationId": "event_start_events__event_id__start_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/finish": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Finish",
+        "operationId": "event_finish_events__event_id__finish_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Empty"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/close": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Close",
+        "operationId": "event_close_events__event_id__close_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Closure"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/cancel": {
+      "post": {
+        "tags": [
+          "Ciclo del evento"
+        ],
+        "summary": "Event Cancel",
+        "operationId": "event_cancel_events__event_id__cancel_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reason"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Token inválido"
+          },
+          "403": {
+            "description": "Rol o propietario incorrecto"
+          },
+          "404": {
+            "description": "Evento inexistente"
+          },
+          "409": {
+            "description": "Conflicto de estado o concurrencia"
+          },
+          "422": {
+            "description": "Regla de negocio o entrada inválida"
+          }
+        }
+      }
+    },
+    "/events/{event_id}/requests": {
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "summary": "Request Supplier",
+        "operationId": "request_supplier_events__event_id__requests_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Event Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierAssignment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests": {
+      "get": {
+        "tags": [
+          "Proveedores"
+        ],
+        "summary": "Requests",
+        "operationId": "requests_requests_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "event_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Event Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/expire": {
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "summary": "Expire",
+        "operationId": "expire_requests_expire_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/requests/{request_id}/respond": {
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "summary": "Respond",
+        "operationId": "respond_requests__request_id__respond_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "request_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Request Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Response"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests/{request_id}/cancel": {
+      "post": {
+        "tags": [
+          "Proveedores"
+        ],
+        "summary": "Cancel Supplier",
+        "operationId": "cancel_supplier_requests__request_id__cancel_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "request_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Request Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Reason"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Approval": {
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Change Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "change_id"
+        ],
+        "title": "Approval"
+      },
+      "Change": {
+        "properties": {
+          "increment": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Increment"
+          },
+          "guests": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 100000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Guests"
+          },
+          "menu": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Menu"
+          },
+          "schedule": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Schedule"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "increment"
+        ],
+        "title": "Change"
+      },
+      "Closure": {
+        "properties": {
+          "act": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Act"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "act"
+        ],
+        "title": "Closure"
+      },
+      "CreateEvent": {
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,80}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Id"
+          },
+          "client_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Client Id"
+          },
+          "event_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Event Date"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "guests": {
+            "type": "integer",
+            "maximum": 100000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Guests"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Items"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "client_id",
+          "event_date",
+          "title",
+          "guests",
+          "items"
+        ],
+        "title": "CreateEvent"
+      },
+      "Empty": {
+        "properties": {},
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Empty"
+      },
+      "Extra": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Description"
+          },
+          "amount": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Amount"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "description",
+          "amount"
+        ],
+        "title": "Extra"
+      },
+      "ExtraId": {
+        "properties": {
+          "extra_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Extra Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "extra_id"
+        ],
+        "title": "ExtraId"
+      },
+      "ExtraPayment": {
+        "properties": {
+          "reference": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reference"
+          },
+          "extra_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Extra Id"
+          },
+          "method": {
+            "type": "string",
+            "pattern": "^(TRANSFERENCIA|TERMINAL)$",
+            "title": "Method"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reference",
+          "extra_id",
+          "method"
+        ],
+        "title": "ExtraPayment"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Item": {
+        "properties": {
+          "resource_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Resource Id"
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Quantity"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "resource_id",
+          "quantity"
+        ],
+        "title": "Item"
+      },
+      "Payment": {
+        "properties": {
+          "reference": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reference"
+          },
+          "amount": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Amount"
+          },
+          "method": {
+            "type": "string",
+            "pattern": "^(TRANSFERENCIA|TERMINAL|EFECTIVO)$",
+            "title": "Method"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reference",
+          "amount",
+          "method"
+        ],
+        "title": "Payment"
+      },
+      "Reason": {
+        "properties": {
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reason"
+        ],
+        "title": "Reason"
+      },
+      "Reference": {
+        "properties": {
+          "reference": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reference"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reference"
+        ],
+        "title": "Reference"
+      },
+      "Rejection": {
+        "properties": {
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reason"
+          },
+          "change_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Change Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "reason",
+          "change_id"
+        ],
+        "title": "Rejection"
+      },
+      "Response": {
+        "properties": {
+          "accepted": {
+            "type": "boolean",
+            "title": "Accepted"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "accepted"
+        ],
+        "title": "Response"
+      },
+      "Revision": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Items"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "reason"
+        ],
+        "title": "Revision"
+      },
+      "SupplierAssignment": {
+        "properties": {
+          "supplier_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Supplier Id"
+          },
+          "service": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1,
+            "title": "Service"
+          },
+          "cost": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Cost"
+          },
+          "replaces": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,80}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Replaces"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "supplier_id",
+          "service",
+          "cost"
+        ],
+        "title": "SupplierAssignment"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

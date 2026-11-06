@@ -1,0 +1,22 @@
+# Render Free para demostración académica. No acredita un despliegue realizado.
+# La base Free vence a los 30 días; no usar para datos operativos reales.
+services:
+  - type: web
+    name: eventos-nova-pia
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: eventos-nova-db
+          property: connectionString
+      - key: TOKENS_JSON
+        sync: false
+      - key: SEED_DATA
+        value: "true"
+databases:
+  - name: eventos-nova-db
+    plan: free
+    databaseName: nova
+    user: nova

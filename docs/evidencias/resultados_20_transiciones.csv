@@ -1,0 +1,21 @@
+﻿caso_id,operacion_id,accion_sugerida,estado_original,estado_inicial_adaptado,esperado,observado,resultado_alumno,nota
+EVE-S001,EVE-O001,completar,COTIZADO,BORRADOR,CERRADO,CERRADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S002,EVE-O002,cancelar,COTIZADO,BORRADOR,CANCELADO,CANCELADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S003,EVE-O003,repetir_aprobacion,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S004,EVE-O004,saltar_estado,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S005,EVE-O005,aprobar,COTIZADO,BORRADOR,ACEPTADO,ACEPTADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S006,EVE-O006,completar,COTIZADO,BORRADOR,CERRADO,CERRADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S007,EVE-O007,cancelar,COTIZADO,BORRADOR,CANCELADO,CANCELADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S008,EVE-O008,repetir_aprobacion,COTIZADO,BORRADOR,RECHAZADO,RECHAZADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S009,EVE-O009,saltar_estado,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S010,EVE-O010,aprobar,COTIZADO,BORRADOR,RECHAZADO,RECHAZADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S011,EVE-O011,completar,COTIZADO,BORRADOR,RECHAZADO,RECHAZADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S012,EVE-O012,cancelar,COTIZADO,BORRADOR,CANCELADO,CANCELADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S013,EVE-O013,repetir_aprobacion,COTIZADO,BORRADOR,RECHAZADO,RECHAZADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S014,EVE-O014,saltar_estado,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S015,EVE-O015,aprobar,COTIZADO,BORRADOR,ACEPTADO,ACEPTADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S016,EVE-O016,completar,COTIZADO,BORRADOR,RECHAZADO,RECHAZADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S017,EVE-O017,cancelar,COTIZADO,BORRADOR,CANCELADO,CANCELADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S018,EVE-O018,repetir_aprobacion,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S019,EVE-O019,saltar_estado,COTIZADO,BORRADOR,CONFLICTO,CONFLICTO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.
+EVE-S020,EVE-O020,aprobar,COTIZADO,BORRADOR,ACEPTADO,ACEPTADO,PASS,Precondiciones sintéticas explícitas de contrato/pago/proveedor en completar. API probada por suite de integración.

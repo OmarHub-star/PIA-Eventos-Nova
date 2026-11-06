@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="511" height="240" preserveAspectRatio="xMinYMin meet" viewBox="0 0 511 240" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="511" height="240"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-240)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="10" y="165" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="36.305908203125" y="202" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">BORRADOR</text>
+			<text x="19" y="184" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,368) scale(1,-1)"></text>
+			<rect x="140" y="165" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="167.729736328125" y="202" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">ACEPTADO</text>
+			<text x="149" y="184" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,368) scale(1,-1)"></text>
+			<rect x="270" y="165" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="290.37109375" y="202" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">CONFIRMADO</text>
+			<text x="279" y="184" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,368) scale(1,-1)"></text>
+			<rect x="400" y="165" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="418.562744140625" y="202" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,404) scale(1,-1)">EN_EJECUCION</text>
+			<text x="409" y="184" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,368) scale(1,-1)"></text>
+			<rect x="270" y="55" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="300.64990234375" y="92" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,184) scale(1,-1)">CERRADO</text>
+			<text x="279" y="74" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,148) scale(1,-1)"></text>
+			<rect x="400" y="55" width="110" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="424.15478515625" y="92" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,184) scale(1,-1)">FINALIZADO</text>
+			<text x="409" y="74" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,148) scale(1,-1)"></text>
+			<path d="M 120,192 L 140,192 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="140 192, 134.5973 194.6098, 134.5973 189.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<path d="M 250,192 L 270,192 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="270 192, 264.5973 194.6098, 264.5973 189.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<path d="M 380,192 L 400,192 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="400 192, 394.5973 194.6098, 394.5973 189.3902" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<path d="M 455,165 L 455,110 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="455 110, 457.6098 115.4027, 452.3902 115.4027" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<path d="M 400,82 L 380,82 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="380 82, 385.4027 79.39021, 385.4027 84.60979" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+			<rect x="10" y="55" width="180" height="55" rx="4" ry="4" style="stroke: rgb(9%,49%,55%); stroke-linecap: butt; stroke-width: 0.8; fill: rgb(92%,96%,96%); fill-rule: evenodd;"/>
+			<text x="69.161376953125" y="92" style="font-family: DV-Bold; font-size: 9px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,184) scale(1,-1)">CANCELADO</text>
+			<text x="19" y="74" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,148) scale(1,-1)">Desde borrador, aceptado</text>
+			<text x="19" y="61" style="font-family: DV; font-size: 8px;fill: rgb(7%,20%,29%); stroke:none;" transform="translate(0,122) scale(1,-1)">o confirmado</text>
+			<path d="M 65,165 L 65,110 Z" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1;"/>
+			<polygon points="65 110, 67.60979 115.4027, 62.39021 115.4027" style="stroke: rgb(32%,40%,45%); stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,40%,45%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>
