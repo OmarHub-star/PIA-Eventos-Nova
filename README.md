@@ -89,7 +89,7 @@ Se reutilizan las técnicas de U4/U5, como Decimal, Specification, pytest, casos
 
 ## GitHub y despliegue
 
-El repositorio de entrega es **https://github.com/OmarHub-star/PIA-Eventos-Nova** y permanece privado. **URL pública del sistema: pendiente de desplegar.** No se presenta un workflow sin ejecutar como evidencia de CI activo.
+El repositorio de entrega es **https://github.com/OmarHub-star/PIA-Eventos-Nova** y permanece privado. **URL pública del sistema: pendiente de desplegar.** [La ejecución de GitHub Actions](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions/runs/42314931852) aprobó calidad, PostgreSQL y Docker sobre el commit `9fb4b061f4af1b2713ccfb8cfbe313578bf0368e`: 270 pruebas aprobadas en contenedores y 97.48% de cobertura. El paso de despliegue se omitió porque todavía no existe un destino configurado.
 
 `docs/DESPLIEGUE.md` contiene los pasos de publicación, variables y comprobaciones. Se eligió Render para la demostración y `render.yaml` fija el plan Free tanto en App como en PostgreSQL. El servicio gratuito puede suspenderse por inactividad y la base vence a los 30 días. No se configura un plan de pago. La cuenta de Render debe quedar vinculada y el despliegue debe verificarse antes de anunciar una URL funcional.
 

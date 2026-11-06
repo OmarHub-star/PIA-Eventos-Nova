@@ -2,7 +2,7 @@
 
 ## Estado de esta entrega
 
-Aplicación y pruebas preparadas y verificadas localmente según `evidencias/RESUMEN.md`. No hay URL pública ni ejecución remota de GitHub Actions que se pueda atribuir todavía a este PIA. Docker y PostgreSQL deben verificarse donde estén disponibles. Los archivos de configuración se incluyen completos.
+Aplicación verificada localmente y en GitHub Actions según `evidencias/RESUMEN.md`. La ejecución remota #1 aprobó PostgreSQL, Docker y las 270 pruebas en contenedores, con 97.48% de cobertura, sobre el commit `9fb4b061f4af1b2713ccfb8cfbe313578bf0368e`. No hay URL pública: la llamada de despliegue del pipeline se omitió por falta de destino.
 
 Repositorio creado: https://github.com/OmarHub-star/PIA-Eventos-Nova (privado). El usuario autorizó la carga del proyecto completo y delegó la selección del alojamiento. Se seleccionó Render Free para App y PostgreSQL; el YAML fija ambos planes explícitamente. La base gratuita vence a los 30 días y el servicio puede suspenderse tras 15 minutos sin uso. El temporizador de vencimientos retoma su revisión cuando el servicio vuelve a estar activo; la validación del límite de respuesta se aplica siempre al procesar la solicitud. Fuente vigente: https://render.com/docs/free.
 
@@ -42,3 +42,9 @@ Registra en README: URL real del repositorio, SHA, URL del sistema, `/health`, `
 ## 6. Operación
 
 Conservar el volumen de PostgreSQL. Realizar backup antes de cambiar la estructura JSON. Esta versión inicial usa `metadata.create_all`, no un sistema de migraciones para esquemas productivos existentes. El temporizador vuelve a evaluar vencimientos al estar en ejecución; tras una caída, el siguiente ciclo recupera las solicitudes pendientes vencidas. La aceptación vencida siempre se rechaza por la regla del dominio.
+
+### Conexión pendiente de GitHub a Render
+
+El usuario confirmó Omar's workspace. El intento de crear el Blueprint devolvió `the repository, branch, or Blueprint file could not be accessed`; no se crearon recursos. El archivo render.yaml está confirmado en GitHub. Abre https://dashboard.render.com/u/settings y, en Account Security > Git Deployment Credentials, agrega GitHub. Comprueba que la aplicación Render tenga permiso para PIA-Eventos-Nova en https://github.com/apps/render/installations/new. Después se puede volver a planificar el Blueprint y revisar los dos planes Free antes de aplicar. Fuente: https://render.com/docs/git-provider.
+
+La CLI oficial v2.36.0 se instaló en el entorno de preparación; su validación requiere autenticar esa CLI por separado. No se afirma validación de CLI completada. La conexión del plugin Render se comprobó mediante la lectura del espacio y sus recursos.

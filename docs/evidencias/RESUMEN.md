@@ -1,4 +1,4 @@
-# Evidencias reales de preparación
+# Evidencias reales de preparación local
 
 Fecha: 06/11/2026. Python 3.12.14, Linux.
 
@@ -23,3 +23,15 @@ Los 140 ensayos CSV forman parte de las 269 pruebas aprobadas; no se suman otra 
 La evidencia HTTP registra roles, rutas, códigos y datos ficticios. Excluye las cabeceras de autenticación. Se verificaron rechazo 409 por aceptación duplicada, 422 por adicional sin pago, 422 por cierre con saldo y cierre final correcto.
 
 La cobertura no demuestra ejecución de todas las plataformas ni acredita mejoras comerciales. No hay capturas simuladas de Actions, Docker o producción.
+
+## Ejecución remota de GitHub Actions
+
+El 06/11/2026 se completó [Actions #1](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions/runs/42314931852) sobre el commit `9fb4b061f4af1b2713ccfb8cfbe313578bf0368e`, con Python 3.12.16. Estos resultados posteriores complementan la preparación local anterior:
+
+| Job | Resultado verificado en sus logs |
+|---|---|
+| quality | Ruff y formato aprobados; 269 pruebas aprobadas y 1 omitida porque no configura API externa; PostgreSQL ejecutado; cobertura 97.48%; evaluador CSV aprobado |
+| containers | Docker Compose construyó App y Tests, conectó PostgreSQL 16 y ejecutó 270 pruebas, sin omisiones, con 97.48% de cobertura; salida 0 |
+| deploy | Job completado; llamada de despliegue omitida por falta de RENDER_DEPLOY_HOOK; no acredita publicación |
+
+La aplicación todavía no está publicada. Render pudo acceder al espacio confirmado por el usuario, pero rechazó la lectura del repositorio privado. Falta vincular GitHub a Render con permiso para PIA-Eventos-Nova. No se crearon servicios ni bases de datos durante ese intento.
