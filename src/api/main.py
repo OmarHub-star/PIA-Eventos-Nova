@@ -135,7 +135,6 @@ def create_app(database_url=None, tokens=None, clock=None, seed_data=None):
 </body>
 </html>"""
 
-
     def authenticated(auth: HTTPAuthorizationCredentials | None = Depends(bearer)):
         if auth:
             for token, principal in credentials.items():
