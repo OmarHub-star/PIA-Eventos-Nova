@@ -1,10 +1,12 @@
-# Render Free para demostración académica. No acredita un despliegue realizado.
+# Render Free para demostración académica.
 # La base Free vence a los 30 días; no usar para datos operativos reales.
 services:
   - type: web
     name: eventos-nova-pia
     runtime: docker
     plan: free
+    region: oregon
+    autoDeployTrigger: checksPass
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
@@ -18,5 +20,8 @@ services:
 databases:
   - name: eventos-nova-db
     plan: free
+    region: oregon
+    postgresMajorVersion: "18"
+    ipAllowList: []
     databaseName: nova
     user: nova
