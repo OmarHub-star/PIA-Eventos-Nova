@@ -4,27 +4,29 @@ Aplicación de coordinación de bodas, graduaciones y eventos empresariales. Imp
 
 **Integrantes:** Omar Tadeo Gasca Deciga (2226708), Osmar Abdi Sánchez Santiago (2226699), Gabriela Alejandra Fernández Briones (2226870). Curso: Componentes de Lógica de Negocios. Profesor: Miguel Ángel Gómez Marroquín. FIME, UANL. Entrega preparada el 6 de noviembre de 2026.
 
-## Empezar en Windows
+## Acceso público a Eventos Nova (Render)
 
-1. Instala Python 3.12 con la opción de agregar Python al PATH.
-2. Extrae el ZIP completo en una carpeta nueva y abre `EJECUTAR_WINDOWS.bat`.
-3. Abre http://localhost:8000/docs. El archivo `.env` generado contiene tokens aleatorios locales. En **Authorize**, pega solo el token del rol que vas a utilizar.
-4. Sigue `docs/DEMO.md`. Cada acción indica el rol correspondiente. Cambia de token al cambiar de actor.
+**Uso principal: no es necesario instalar Python, Docker ni dependencias en el equipo de quien utiliza la API.** El servicio se ejecuta en Render y se puede consultar desde el navegador.
 
-La API constituye la aplicación funcional. Swagger UI es la interfaz de demostración. Las notificaciones son registros internos persistentes con destinatario, disponibles en auditoría para Coordinación y Administración. No se envían correos ni mensajes externos.
+- [Página de inicio de Eventos Nova](https://eventos-nova-pia-cv0t.onrender.com/)
+- [Swagger UI — documentación y pruebas de la API](https://eventos-nova-pia-cv0t.onrender.com/docs)
+- [Especificación OpenAPI](https://eventos-nova-pia-cv0t.onrender.com/openapi.json)
+- [Estado de la aplicación y base de datos](https://eventos-nova-pia-cv0t.onrender.com/health)
+- [Servicio en Render (panel de administración)](https://dashboard.render.com/web/srv-dbn6m9ec6qcc73cqj5pg)
 
-## Ejecución manual
+### Acceso y roles
 
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
-python -m pip install -r requirements.txt
-python scripts/init_env.py
-python scripts/serve.py
-```
+Swagger es público para consulta, pero las rutas de negocio están protegidas por autenticación Bearer. El responsable del sistema proporciona un token distinto para cada identidad/rol: **ADMIN**, **COORDINADOR**, **CLIENTE** y **PROVEEDOR**. Usa **Authorize** en Swagger y cambia de token cuando cambies de actor durante la demostración.
 
-Linux/macOS: también puedes ejecutar `sh EJECUTAR_LINUX_MAC.sh`. SQLite conserva los cambios en `nova.db` entre reinicios. Para limpiar una demo, usa otro identificador de evento o una nueva base de datos; no se borra la base automáticamente.
+Los tokens reales están configurados fuera del repositorio, en la variable de entorno `TOKENS_JSON` de Render. **No publiques tokens, contraseñas, el archivo `.env` ni capturas que revelen credenciales.** La plantilla `.env.example` solo contiene identificadores de reemplazo; no autoriza peticiones. Los tokens que hayan sido compartidos deben rotarse antes de una entrega con datos no ficticios.
+
+Recorrido guiado por roles y reglas: [docs/DEMO.md](docs/DEMO.md). La API es el sistema funcional; Swagger sirve como interfaz técnica de demostración. Las notificaciones se registran internamente y no se envían por correo.
+
+### Ejecución local opcional (desarrollo y pruebas)
+
+Solo es necesaria si se desea modificar o probar el código fuera de Render. Se utiliza Python 3.12. Después de crear y activar un entorno virtual de Python, instala las dependencias con `python -m pip install -r requirements.txt`, ejecuta `python scripts/init_env.py` para crear la configuración ficticia local y arranca con `python scripts/serve.py`. El Swagger local estará en `http://localhost:8000/docs`.
+
+Los archivos de arranque rápido `.bat` y `.sh` se retiraron porque no son necesarios para usar Render. Los scripts Python permanecen: `scripts/serve.py` arranca **también** la aplicación dentro de Docker; `scripts/init_env.py` participa en las pruebas de CI.
 
 ## Docker Compose: DB, App y Tests
 
@@ -87,10 +89,14 @@ Swagger: `/docs`. OpenAPI vivo: `/openapi.json`. Copia versionada: `docs/api/ope
 
 Se reutilizan las técnicas de U4/U5, como Decimal, Specification, pytest, casos parametrizados, commit/rollback y CI. Las reglas de descuentos de las tiendas de práctica no se trasladan al negocio de Eventos Nova. Consulta `docs/ADAPTACION_DATOS.md`.
 
-## GitHub y despliegue
+## GitHub, integración y despliegue
 
-El repositorio de entrega es **https://github.com/OmarHub-star/PIA-Eventos-Nova** y permanece privado. **URL pública del sistema: pendiente de desplegar.** [La ejecución de GitHub Actions](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions/runs/42314931852) aprobó calidad, PostgreSQL y Docker sobre el commit `9fb4b061f4af1b2713ccfb8cfbe313578bf0368e`: 270 pruebas aprobadas en contenedores y 97.48% de cobertura. El paso de despliegue se omitió porque todavía no existe un destino configurado.
+- **Repositorio público:** [OmarHub-star/PIA-Eventos-Nova](https://github.com/OmarHub-star/PIA-Eventos-Nova), rama `main`.
+- **Despliegue:** [Eventos Nova en Render](https://eventos-nova-pia-cv0t.onrender.com/). El servicio utiliza el `Dockerfile` y escucha en el puerto suministrado por el entorno.
+- **CI:** [Ejecución verificada antes de la limpieza](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions/runs/42343111534): comprobaciones de formato y calidad; 270 pruebas aprobadas en contenedores con PostgreSQL y cobertura del 97.39 %. Las próximas modificaciones se verifican en su propia ejecución.
+- **Actualización:** Render tiene activado el despliegue automático al pasar las verificaciones (`checksPass`). El job `deploy` de GitHub Actions permite opcionalmente un hook, pero Render puede desplegar por su propia integración GitHub.
+- **Documentos de entrega:** [reporte PDF](entrega/Reporte_Final_PIA_EventosNova_Equipo16.pdf), [presentación PPTX](entrega/Presentacion_Defensa_EventosNova.pptx) y [presentación PDF](entrega/Presentacion_Defensa_EventosNova.pdf).
 
-`docs/DESPLIEGUE.md` contiene los pasos de publicación, variables y comprobaciones. Se eligió Render para la demostración y `render.yaml` fija el plan Free tanto en App como en PostgreSQL. El servicio gratuito puede suspenderse por inactividad y la base vence a los 30 días. No se configura un plan de pago. La cuenta de Render debe quedar vinculada y el despliegue debe verificarse antes de anunciar una URL funcional.
+Consulta [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md) para operar el servicio y [docs/evidencias/RESUMEN.md](docs/evidencias/RESUMEN.md) para diferenciar las pruebas históricas de las verificaciones actuales.
 
-El desarrollo asistido por IA está registrado en `docs/USO_IA.md`. El equipo debe revisar y comprender la entrega, registrar sus aportaciones reales y defender las decisiones. Los commits preparados no acreditan participación individual ni sustituyen el historial de trabajo del equipo.
+El uso de asistencia de IA y los límites del proyecto se documentan en [docs/USO_IA.md](docs/USO_IA.md). El equipo debe revisar sus aportaciones reales y prepararse para explicar y defender el código.
