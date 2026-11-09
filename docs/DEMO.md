@@ -1,8 +1,23 @@
 # Demostración y defensa
 
+## Portal web para usuarios
+
+**Enlace de uso normal:** https://eventos-nova-pia-cv0t.onrender.com/
+
+La página principal es una interfaz web con acceso por token, panel de inicio, listado de eventos, detalle de propuestas, pagos y cambios, vista de proveedores y catálogos de consulta. Los botones aparecen según el rol autenticado, pero **el servidor también verifica cada permiso**. El token no se almacena de forma persistente en el navegador. Al recargar o cerrar sesión se debe introducir nuevamente.
+
+- **Coordinación:** crear eventos, preparar/enviar propuestas, gestionar proveedores y ejecutar/cerrar servicios según las reglas.
+- **Cliente:** consultar únicamente sus eventos, aceptar o rechazar propuestas, firmar mediante referencia y solicitar cambios.
+- **Administración:** registrar pagos, autorizar cambios, consultar rentabilidad, auditoría y cancelar eventos cuando corresponda.
+- **Proveedor:** consultar sus solicitudes, aceptar o rechazar en plazo y cancelar asignaciones confirmadas.
+
+Los pagos y las firmas son **registros académicos de referencia**, no una pasarela real ni una firma electrónica certificada. El botón **Actualizar** recarga los datos; las acciones que requieren otro rol se completan cerrando sesión y entrando con el token correspondiente.
+
+Swagger en `/docs` se conserva para mostrar el contrato técnico, inspeccionar respuestas HTTP y explicar reglas/errores al profesor. Para la defensa se recomienda iniciar en el portal web y utilizar Swagger únicamente como apoyo.
+
 ## Preparación
 
-Usa una base ficticia recién inicializada. Inicia la aplicación y abre `/docs`. Cambia el token de Authorize según el rol indicado. Elige un ID nuevo, por ejemplo DEMO-PIA-01. El proveedor de demo solo puede aceptar un evento por fecha; para repetir el recorrido completo prepara otra base de demo o usa una fecha y proveedor disponibles.
+Utiliza datos ficticios y abre el portal `/`. Cambia de usuario cerrando sesión y accediendo con el token del siguiente rol (o utiliza `/docs` para demostrar solicitudes técnicas). Elige un ID nuevo, por ejemplo DEMO-PIA-01. El proveedor de demo solo puede aceptar un evento por fecha; para repetir el recorrido completo prepara otra base de demo o usa una fecha y proveedor disponibles.
 
 ## Recorrido en vivo de 8 a 12 minutos
 
@@ -41,4 +56,4 @@ El script `python scripts/demo_http.py --base-url http://localhost:8000` realiza
 
 **¿Son reales las métricas?** Se generan con pytest-cov y se adjunta JUnit/log/HTML. Las metas comerciales del BRD no se presentan como mejoras medidas.
 
-**¿Qué falta verificar fuera de este entorno?** Ejecución de Compose/PostgreSQL, Actions remoto y despliegue público. Se requieren el repositorio y la plataforma reales. No se simulan esas evidencias.
+**¿Qué se debe verificar antes de la defensa?** Que GitHub Actions haya aprobado las pruebas de la versión final, Render esté en estado Live y el portal permita ingresar, consultar eventos y ejecutar operaciones autorizadas con datos ficticios. No se presentan ejecuciones ni capturas simuladas.

@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Eventos Nova: portal de clientes, coordinación, proveedores y administración.">
+  <title>Eventos Nova · Portal de gestión</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#eaf0ff;background:#0c1324;font-synthesis:none}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 70% 0,#26365d 0,transparent 42%),#0c1324}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    button:disabled{cursor:wait;opacity:.55}
+    a{color:#9ae7df}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #8de8e0;outline-offset:3px}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.4rem,5vw,4.4rem);letter-spacing:-.055em;line-height:1.08}
+    h2{font-size:1.65rem;letter-spacing:-.03em}
+    h3{font-size:1rem}
+    p{line-height:1.6}
+    .muted{color:#a9b7d4}
+    .small{font-size:.83rem}
+    .eyebrow{letter-spacing:.15em;text-transform:uppercase;color:#80e5da;font-weight:800;font-size:.75rem}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.2rem;text-decoration:none;color:#f0f6ff}
+    .logo{display:grid;place-items:center;width:43px;height:43px;flex:none;color:#102135;border-radius:14px;background:linear-gradient(135deg,#a98aff,#78ede0);font-size:23px}
+    .public-header{max-width:1200px;margin:auto;padding:26px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .status-pill,.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #4d6584;color:#d7e1f4;background:#24344c88;padding:7px 12px;border-radius:100px;font-size:.78rem;font-weight:750}
+    .dot{width:8px;height:8px;border-radius:50%;background:#69e6ce;display:inline-block}
+    .landing{max-width:1200px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:64px;align-items:center;margin:40px auto 30px;padding:40px 28px 85px}
+    .landing h1 span{color:#8ae9dc}
+    .intro{font-size:1.12rem;color:#bfcee6;max-width:590px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:38px}
+    .feature{background:#ffffff08;border:1px solid #33445f;border-radius:15px;padding:18px 16px}
+    .feature span{font-size:1.4rem}
+    .feature b{display:block;margin:8px 0 5px;font-size:.9rem}
+    .feature p{font-size:.79rem;color:#b7c4dc;margin:0}
+    .card{background:linear-gradient(160deg,#202d47ed,#141f35f5);border:1px solid #3c4e6c;box-shadow:0 18px 54px #03091844;border-radius:22px;padding:26px}
+    .login-card{padding:34px}
+    .login-card h2{margin:11px 0 8px}
+    .login-card .notice{padding:13px;border-radius:12px;border:1px solid #425772;background:#ffffff09;font-size:.83rem;color:#c5d2e7}
+    .field{display:flex;flex-direction:column;gap:7px;margin:15px 0;font-size:.88rem;font-weight:650;color:#dce6fa}
+    .field input,.field select,.field textarea,.item-row input,.item-row select,#searchEvents{width:100%;padding:12px 13px;border-radius:11px;border:1px solid #50617c;background:#101a2c;color:#f5f8ff;min-height:45px}
+    .field textarea{resize:vertical;min-height:84px}
+    .field input::placeholder,.field textarea::placeholder,#searchEvents::placeholder{color:#8da1bf}
+    .btn{border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:11px;font-weight:750;padding:11px 18px;min-height:44px;transition:filter .15s,transform .15s;text-decoration:none}
+    .btn:hover:not(:disabled){filter:brightness(1.09);transform:translateY(-1px)}
+    .primary{background:#84e9dc;color:#0b2430}
+    .outline{background:#ffffff0a;border-color:#50617c;color:#e6ecf8}
+    .danger{background:#6a2838;border-color:#a24c62;color:#fff}
+    .btn.small{padding:8px 11px;min-height:36px;font-size:.81rem}
+    .btn.full{width:100%}
+    .public-footer{padding:16px 28px 30px;color:#91a1c0;text-align:center;font-size:.8rem}
+    [hidden]{display:none!important}
+    .workspace{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:100vh}
+    .sidebar{border-right:1px solid #31415d;background:#10192c;padding:26px 18px;display:flex;flex-direction:column;gap:28px;position:sticky;top:0;height:100vh}
+    .sidebar .brand{font-size:1rem}
+    .sidebar .logo{width:39px;height:39px}
+    .sidebar nav{display:grid;gap:9px}
+    .nav-btn{border:0;background:transparent;color:#bdcbe3;text-align:left;border-radius:12px;padding:13px 14px;font-weight:700}
+    .nav-btn:hover,.nav-btn.active{background:#2b3b56;color:#fff}
+    .side-bottom{margin-top:auto;display:grid;gap:12px}
+    .workspace-main{min-width:0;padding:27px clamp(18px,4vw,56px) 68px;max-width:1500px;width:100%;margin:0 auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:44px;border-bottom:1px solid #31415d;padding-bottom:19px}
+    .topbar-actions{display:flex;gap:9px;align-items:center}
+    .user-tag{font-size:.86rem;color:#c3d1e6}
+    .page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+    .page-head h1{font-size:2.3rem;margin:7px 0}
+    .page-head p{margin-bottom:0}
+    .stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:24px 0}
+    .stat{border:1px solid #3c4e6a;border-radius:17px;padding:21px;background:#1c2a42}
+    .stat .number{font-size:2rem;display:block;font-weight:850;letter-spacing:-.045em;margin:8px 0}
+    .section{margin-top:30px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+    .list{display:grid;gap:12px}
+    .event-card,.request-card{padding:19px 22px;background:#19263d;border:1px solid #3b4c68;border-radius:16px}
+    .event-card{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .event-card h3,.request-card h3{margin:0 0 8px;font-size:1.03rem}
+    .event-card p,.request-card p{margin:4px 0;color:#b8c7df;font-size:.87rem}
+    .event-right{text-align:right;min-width:138px}
+    .event-right strong{display:block;font-size:1.05rem;margin-top:8px}
+    .chip{display:inline-flex;align-items:center;padding:5px 10px;border-radius:100px;font-weight:800;font-size:.68rem;letter-spacing:.025em;background:#465471;color:#eef3ff}
+    .chip.confirmed,.chip.done{background:#17473f;color:#95f2cf}
+    .chip.pending{background:#594328;color:#ffe3a8}
+    .chip.cancelled{background:#5a2d39;color:#ffbbca}
+    .toolbar{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+    #searchEvents{max-width:450px}
+    .empty{padding:36px 25px;border:1px dashed #52627f;background:#172238;text-align:center;border-radius:15px;color:#b5c4dd}
+    .split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:20px}
+    .detail-card{background:#19263d;border:1px solid #3b4c68;border-radius:18px;padding:24px;margin-bottom:18px}
+    .detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px}
+    .detail-grid .label{font-size:.79rem;color:#a5b5d0;margin-bottom:5px}
+    .detail-grid strong{overflow-wrap:anywhere}
+    .action-grid{display:flex;gap:9px;flex-wrap:wrap}
+    .detail-card h3{margin-bottom:17px}
+    .line{border-top:1px solid #344761;padding:12px 0;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;font-size:.9rem}
+    .line:first-of-type{border-top:0}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .stack{display:grid;gap:14px}
+    .table-wrap{overflow-x:auto}
+    table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:530px}
+    th,td{padding:12px;text-align:left;border-bottom:1px solid #36445f}
+    th{color:#a4b6d3}
+    .alert{padding:12px 15px;border:1px solid #8f5267;background:#512b39;border-radius:10px;color:#ffd3de;margin:12px 0}
+    .success{padding:12px 15px;border:1px solid #3b7e70;background:#1f4a44;border-radius:10px;color:#b8f9e8;margin:12px 0}
+    dialog{color:#eef4ff;background:#152137;border:1px solid #53647d;border-radius:20px;max-width:min(590px,calc(100vw - 26px));width:100%;padding:0;box-shadow:0 25px 75px #0009}
+    dialog::backdrop{background:#030817d9;backdrop-filter:blur(4px)}
+    .modal-head{padding:24px 26px 16px;border-bottom:1px solid #3b4c67}
+    .modal-head h2{margin:0 0 8px}
+    .modal-body{padding:12px 26px 26px;max-height:min(70vh,700px);overflow:auto}
+    .modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:24px}
+    .item-row{display:grid;grid-template-columns:minmax(0,1fr) 100px 38px;gap:8px;align-items:center;margin-bottom:10px}
+    .item-row button{padding:5px}
+    .item-row input{max-width:100%}
+    .hint{font-size:.82rem;color:#acc2dc;margin:4px 0 14px}
+    .tag-link{color:#a7e9e0;font-size:.83rem}
+    #toast{position:fixed;bottom:18px;right:18px;z-index:10;max-width:min(450px,calc(100vw - 36px));padding:15px 18px;background:#19453f;border:1px solid #6ed2be;color:#e7fff6;border-radius:12px;box-shadow:0 10px 50px #030916a0}
+    @media(max-width:980px){.landing{grid-template-columns:1fr;gap:28px;padding-top:10px}.landing-copy{max-width:700px}.workspace{grid-template-columns:1fr}.sidebar{height:auto;position:static;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px}.sidebar nav{display:flex;flex-wrap:wrap;gap:4px}.side-bottom{margin:0}.side-bottom .muted{display:none}.workspace-main{padding-top:23px}.split{grid-template-columns:1fr}.topbar{margin-bottom:30px}}
+    @media(max-width:620px){.public-header{padding:18px}.landing{padding:17px 18px 55px}.feature-grid{grid-template-columns:1fr}.login-card{padding:23px}.sidebar{display:block}.sidebar nav{margin-top:14px;display:flex}.sidebar nav button{padding:10px}.side-bottom{display:none}.topbar{flex-wrap:wrap}.stat-grid{grid-template-columns:1fr}.event-card{align-items:flex-start;flex-direction:column}.event-right{text-align:left;min-width:0}.detail-grid{grid-template-columns:1fr}.modal-body{padding:12px 19px 22px}.modal-head{padding:21px 19px}.item-row{grid-template-columns:minmax(0,1fr) 80px 34px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <div id="publicHeader" class="public-header">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true">✦</span> Eventos Nova</a>
+    <span class="status-pill"><span class="dot"></span> Portal del equipo 16</span>
+  </div>
+  <main id="loginScreen" class="landing">
+    <section class="landing-copy" aria-labelledby="landingTitle">
+      <p class="eyebrow">Gestión de eventos · PIA</p>
+      <h1 id="landingTitle">Los mejores momentos, <span>bien organizados.</span></h1>
+      <p class="intro">Organiza propuestas, contratos, pagos, proveedores y servicios desde un mismo lugar. Cada persona accede solo a las funciones de su rol.</p>
+      <div class="feature-grid">
+        <div class="feature"><span aria-hidden="true">📅</span><b>Eventos</b><p>Consulta fechas, estados y propuestas.</p></div>
+        <div class="feature"><span aria-hidden="true">🤝</span><b>Colaboración</b><p>Coordina clientes y proveedores.</p></div>
+        <div class="feature"><span aria-hidden="true">🛡️</span><b>Acceso seguro</b><p>Permisos según tu perfil.</p></div>
+      </div>
+    </section>
+    <section class="card login-card" aria-labelledby="loginTitle">
+      <span class="eyebrow">Área de acceso</span>
+      <h2 id="loginTitle">Bienvenido de nuevo</h2>
+      <p class="muted">Ingresa la clave de acceso proporcionada por el equipo de Eventos Nova.</p>
+      <form id="loginForm" autocomplete="off">
+        <label class="field">Token de acceso
+          <input id="tokenInput" type="password" name="token" required minlength="1" autocomplete="off" spellcheck="false" placeholder="Pega aquí tu token Bearer">
+        </label>
+        <div id="loginError" class="alert" role="alert" hidden></div>
+        <button id="loginButton" class="btn primary full" type="submit">Ingresar al portal →</button>
+      </form>
+      <p class="notice" style="margin:24px 0 0">No tienes una clave todavía? Solicítala al administrador. Por seguridad, la sesión se cierra al recargar y la clave no se guarda en este navegador.</p>
+      <p class="small muted" style="margin:17px 0 0">Acceso técnico: <a href="/docs" target="_blank" rel="noopener noreferrer">Documentación API</a></p>
+    </section>
+  </main>
+  <section id="appScreen" class="workspace" hidden aria-label="Panel de Eventos Nova">
+    <aside class="sidebar">
+      <a class="brand" href="/" data-nav="inicio"><span class="logo" aria-hidden="true">✦</span> Eventos Nova</a>
+      <nav aria-label="Menú principal">
+        <button class="nav-btn active" data-nav="inicio">⌂ &nbsp; Inicio</button>
+        <button class="nav-btn" data-nav="eventos" id="navEventos">▦ &nbsp; Eventos</button>
+        <button class="nav-btn" data-nav="solicitudes" id="navSolicitudes">⇄ &nbsp; Proveedores</button>
+        <button class="nav-btn" data-nav="catalogos">◫ &nbsp; Catálogos</button>
+      </nav>
+      <div class="side-bottom">
+        <span class="muted small">API alojada en Render</span>
+        <a class="tag-link" href="/docs" target="_blank" rel="noopener noreferrer">Ver documentación técnica ↗</a>
+      </div>
+    </aside>
+    <main class="workspace-main">
+      <div class="topbar">
+        <span class="eyebrow">Panel de gestión · Equipo 16</span>
+        <div class="topbar-actions">
+          <span id="userTag" class="user-tag"></span>
+          <button class="btn outline small" id="refreshButton">↻ Actualizar</button>
+          <button class="btn outline small" id="logoutButton">Salir</button>
+        </div>
+      </div>
+      <section id="panel" aria-live="polite"></section>
+    </main>
+  </section>
+  <dialog id="modal" aria-labelledby="modalTitle">
+    <div class="modal-head"><h2 id="modalTitle">Acción</h2><p id="modalHelp" class="muted small" style="margin:0"></p></div>
+    <form id="actionForm">
+      <div class="modal-body">
+        <div id="modalFields"></div>
+        <div id="modalError" class="alert" hidden role="alert"></div>
+        <div class="modal-actions">
+          <button type="button" class="btn outline" id="cancelModal">Cancelar</button>
+          <button type="submit" class="btn primary" id="submitModal">Guardar</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <footer class="public-footer" id="publicFooter">© Eventos Nova · Proyecto Integrador de Aprendizaje · FIME UANL · <a href="/health">Estado del servicio</a></footer>
+  <script>
+    "use strict";
+    const $ = (s, scope=document) => scope.querySelector(s);
+    const $$ = (s, scope=document) => Array.from(scope.querySelectorAll(s));
+    const state = {token:"", user:null, events:[], requests:[], catalogs:{}, view:"inicio", current:null, currentId:null, modal:null};
+    const roleNames = {ADMIN:"Administración",COORDINADOR:"Coordinación",CLIENTE:"Cliente",PROVEEDOR:"Proveedor"};
+    const statuses = {BORRADOR:"Borrador",ACEPTADO:"Aceptado",CONFIRMADO:"Confirmado",EN_EJECUCION:"En ejecución",FINALIZADO:"Finalizado",CERRADO:"Cerrado",CANCELADO:"Cancelado",ENVIADA:"Enviada",ACEPTADA:"Aceptada",PENDIENTE:"Pendiente",RECHAZADO:"Rechazado",APLICADO:"Aplicado",EXPIRADO:"Expirado"};
+    const actions = {
+      send:["Enviar propuesta","Enviar la propuesta al cliente para revisión."],
+      accept:["Aceptar propuesta","Aceptar la propuesta recibida."],
+      reject:["Rechazar propuesta","Indica por qué necesitas una nueva propuesta."],
+      sign:["Firmar contrato","Registra la referencia del contrato firmado. No realiza firma electrónica."],
+      pay:["Registrar pago","Registra un pago con su referencia; no cobra dinero automáticamente."],
+      revise:["Modificar propuesta","Actualiza recursos y cantidades antes de enviar la propuesta."],
+      change:["Solicitar cambio","Registra un cambio de aforo, menú u horario y su incremento cotizado."],
+      approve:["Autorizar cambio","Aprueba un cambio que está pendiente."],
+      reject_change:["Rechazar cambio","Rechaza el cambio pendiente e indica el motivo."],
+      extra:["Añadir servicio adicional","Registra un nuevo servicio y su importe."],
+      pay_extra:["Registrar pago de adicional","Registra el comprobante de un servicio adicional."],
+      deliver_extra:["Marcar adicional entregado","Confirma que el servicio adicional ya fue prestado."],
+      start:["Iniciar evento","Solo se permite en la fecha del evento y con proveedores confirmados."],
+      finish:["Finalizar evento","Finaliza la ejecución del evento."],
+      close:["Cerrar evento","Exige saldo cero y servicios adicionales resueltos."],
+      cancel:["Cancelar evento","Una cancelación puede conservar pagos ya registrados."],
+      supplier_assign:["Solicitar proveedor","Envía una solicitud de servicio a un proveedor."],
+      supplier_accept:["Aceptar solicitud","Confirma que puedes prestar el servicio."],
+      supplier_reject:["Rechazar solicitud","Rechaza la solicitud recibida."],
+      supplier_cancel:["Cancelar asignación","Indica por qué ya no podrás prestar el servicio."],
+      supplier_expire:["Revisar vencimientos","Actualiza las solicitudes que superaron las 48 horas."],
+      new_event:["Crear evento","Registra un nuevo evento y su propuesta inicial."]
+    };
+    const esc = v => String(v === null || v === undefined ? "" : v).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    const fmtMoney = v => Number.isFinite(Number(v)) ? new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN"}).format(Number(v)) : "—";
+    const fmtDate = v => v ? new Date(String(v).slice(0,10)+"T12:00:00").toLocaleDateString("es-MX",{year:"numeric",month:"short",day:"numeric"}) : "—";
+    const displayStatus = v => statuses[v] || String(v || "Sin estado").replaceAll("_"," ");
+    function chip(v){let cls=["CONFIRMADO","CERRADO","FINALIZADO","APLICADO","ACEPTADO","ACEPTADA"].includes(v)?"confirmed":["CANCELADO","RECHAZADO","EXPIRADO"].includes(v)?"cancelled":"pending";return '<span class="chip '+cls+'">'+esc(displayStatus(v))+'</span>';}
+    function toast(msg){const el=$("#toast");el.textContent=msg;el.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.hidden=true,4200);}
+    function errorMessage(data,status){
+      if(Array.isArray(data.detail))return data.detail.map(x=>String(x.msg||"Dato inválido")).join(". ");
+      if(typeof data.detail==="string")return data.detail;
+      return status===401?"Credenciales inválidas. Solicita un token válido.":status===403?"Tu rol no permite esta operación.":"No fue posible completar la solicitud.";
+    }
+    async function api(path,options={}){
+      const response=await fetch(path,{method:options.method||"GET",headers:{"Accept":"application/json",...(options.body===undefined?{}:{"Content-Type":"application/json"}),...(state.token?{"Authorization":"Bearer "+state.token}:{})},body:options.body===undefined?undefined:JSON.stringify(options.body),cache:"no-store",credentials:"omit",referrerPolicy:"no-referrer"});
+      let data;try{data=await response.json()}catch{data={};}
+      if(!response.ok){const err=new Error(errorMessage(data,response.status));err.status=response.status;throw err;}
+      return data;
+    }
+    function requireRole(){return state.user&&state.user.role;}
+    function hasRole(...rs){return rs.includes(requireRole());}
+    function showError(el,e){el.textContent=e.message||String(e);el.hidden=false;}
+    function setBusy(button,busy,label){button.disabled=busy;button.textContent=busy?"Procesando…":label;}
+    function logout(msg){
+      state.token="";state.user=null;state.events=[];state.requests=[];state.catalogs={};state.current=null;state.currentId=null;
+      $("#tokenInput").value="";$("#loginScreen").hidden=false;$("#appScreen").hidden=true;$("#publicHeader").hidden=false;$("#publicFooter").hidden=false;
+      $("#loginError").hidden=true;$("#panel").replaceChildren();if($("#modal").open)$("#modal").close();if(msg)toast(msg);
+    }
+    async function loadData(){
+      const supplierOnly=hasRole("PROVEEDOR");
+      const tasks=[api(supplierOnly?"/requests":"/events"),api("/catalogs/resource"),api("/catalogs/supplier")];
+      if(hasRole("ADMIN","COORDINADOR"))tasks.push(api("/catalogs/client"));
+      if(!supplierOnly && hasRole("ADMIN","COORDINADOR"))tasks.push(api("/requests"));
+      const results=await Promise.allSettled(tasks);
+      if(results[0].status==="rejected")throw results[0].reason;
+      state.events=supplierOnly?[]:results[0].value;
+      state.requests=supplierOnly?results[0].value:(hasRole("ADMIN","COORDINADOR")&&results[4]?.status==="fulfilled"?results[4].value:[]);
+      state.catalogs.resource=results[1].status==="fulfilled"?results[1].value:[];
+      state.catalogs.supplier=results[2].status==="fulfilled"?results[2].value:[];
+      state.catalogs.client=hasRole("ADMIN","COORDINADOR")&&results[3].status==="fulfilled"?results[3].value:[];
+      if(hasRole("ADMIN","COORDINADOR")&&results[4]?.status==="rejected")toast("No se pudieron actualizar todas las solicitudes.");
+    }
+    $("#loginForm").addEventListener("submit",async ev=>{
+      ev.preventDefault();const b=$("#loginButton"), err=$("#loginError"), val=$("#tokenInput").value.trim();
+      err.hidden=true;if(!val)return;
+      state.token=val;setBusy(b,true,"Ingresar al portal →");
+      try{
+        state.user=await api("/me");
+        await loadData();
+        $("#tokenInput").value="";
+        $("#loginScreen").hidden=true;$("#appScreen").hidden=false;$("#publicHeader").hidden=true;$("#publicFooter").hidden=true;
+        $("#userTag").textContent=(roleNames[state.user.role]||state.user.role)+" · "+state.user.id;
+        $("#navEventos").hidden=hasRole("PROVEEDOR");
+        $("#navSolicitudes").hidden=hasRole("CLIENTE");
+        navigate("inicio");toast("Acceso correcto. Bienvenido a Eventos Nova.");
+      }catch(e){state.token="";state.user=null;showError(err,e);}
+      finally{setBusy(b,false,"Ingresar al portal →");}
+    });
+    $("#logoutButton").addEventListener("click",()=>logout("Sesión cerrada."));
+    $("#refreshButton").addEventListener("click",async()=>{
+      const b=$("#refreshButton");setBusy(b,true,"↻ Actualizar");
+      try{await loadData();if(state.currentId && !hasRole("PROVEEDOR") && state.view==="detalle"){state.current=await api("/events/"+encodeURIComponent(state.currentId));}render();toast("Datos actualizados.");}
+      catch(e){toast(e.message);}
+      finally{setBusy(b,false,"↻ Actualizar");}
+    });
+    function navigate(view){
+      if(view==="eventos"&&hasRole("PROVEEDOR"))view="solicitudes";
+      if(view==="solicitudes"&&hasRole("CLIENTE"))view="inicio";
+      state.view=view;
+      $$(".nav-btn").forEach(b=>{b.classList.toggle("active",b.dataset.nav===(view==="detalle"?"eventos":view));});
+      render();window.scrollTo({top:0,behavior:"instant"});
+    }
+    function pageHead(title,subtitle,button=""){return '<div class="page-head"><div><p class="eyebrow">Eventos Nova / '+esc(roleNames[requireRole()]||"Portal")+'</p><h1>'+esc(title)+'</h1><p class="muted">'+esc(subtitle)+'</p></div>'+button+'</div>';}
+    function eventCard(event){
+      return '<article class="event-card"><div><h3>'+esc(event.title||event.id)+'</h3><p>📅 '+esc(fmtDate(event.event_date))+' &nbsp; · &nbsp; '+esc(event.guests||0)+' invitados</p><p class="small">Folio: '+esc(event.id)+'</p></div><div class="event-right">'+chip(event.state)+'<strong>'+esc(fmtMoney(event.total))+'</strong><button class="btn outline small" data-open-event="'+esc(event.id)+'">Ver detalles →</button></div></article>';
+    }
+    function renderDashboard(){
+      const supplier=hasRole("PROVEEDOR"), list=supplier?state.requests:state.events, pending=supplier?list.filter(r=>r.state==="PENDIENTE").length:list.filter(e=>e.state==="BORRADOR"||e.state==="ACEPTADO").length;
+      const subtitle=supplier?"Consulta y responde las solicitudes de servicios asignadas a tu usuario.":"Administra tus eventos desde una sola pantalla, sin necesidad de utilizar Swagger.";
+      const quick=hasRole("ADMIN","COORDINADOR")?'<button class="btn primary" data-act="new_event">+ Crear evento</button>':'<button class="btn primary" data-nav="'+(supplier?"solicitudes":"eventos")+'">Ver '+(supplier?"solicitudes":"mis eventos")+' →</button>';
+      let html=pageHead("Hola, "+(roleNames[requireRole()]||"bienvenido"),subtitle,quick);
+      html+='<div class="stat-grid"><div class="stat"><span class="muted small">'+(supplier?"Solicitudes":"Eventos registrados")+'</span><span class="number">'+list.length+'</span><span class="small muted">En tu cuenta</span></div><div class="stat"><span class="muted small">Pendientes</span><span class="number">'+pending+'</span><span class="small muted">Por atender</span></div><div class="stat"><span class="muted small">'+(supplier?"Confirmadas":"Eventos confirmados")+'</span><span class="number">'+list.filter(x=>x.state==="CONFIRMADO").length+'</span><span class="small muted">Estado actual</span></div></div>';
+      html+='<section class="section"><div class="section-head"><h2>'+(supplier?"Solicitudes recientes":"Eventos recientes")+'</h2><button class="btn outline small" data-nav="'+(supplier?"solicitudes":"eventos")+'">Ver todos →</button></div><div class="list">';
+      if(!list.length)html+='<div class="empty">Todavía no hay registros asignados a esta cuenta.</div>';
+      else if(supplier)html+=list.slice(-5).reverse().map(requestCard).join("");
+      else html+=list.slice(-5).reverse().map(eventCard).join("");
+      html+='</div></section><section class="section"><div class="detail-card"><h3>🔒 Acceso por permisos</h3><p class="muted small">Las acciones del portal utilizan los permisos del servidor. Tu token solo permanece en memoria mientras esté abierta esta sesión; no se almacena en el navegador.</p></div></section>';
+      $("#panel").innerHTML=html;
+    }
+    function renderEvents(query=""){
+      let html=pageHead(hasRole("CLIENTE")?"Mis eventos":"Gestión de eventos","Consulta propuestas, fechas, pagos y actividades.",hasRole("ADMIN","COORDINADOR")?'<button class="btn primary" data-act="new_event">+ Nuevo evento</button>':"");
+      html+='<div class="toolbar"><input type="search" id="searchEvents" placeholder="Buscar por nombre, folio o estado…" value="'+esc(query)+'" aria-label="Buscar eventos"><span class="small muted" id="countEvents"></span></div><div class="list" id="eventsList"></div>';
+      $("#panel").innerHTML=html;filterEvents(query);
+    }
+    function filterEvents(query){
+      const q=query.trim().toLocaleLowerCase("es");const filtered=state.events.filter(e=>(e.title+" "+e.id+" "+displayStatus(e.state)).toLocaleLowerCase("es").includes(q));
+      $("#countEvents").textContent=filtered.length+" eventos";
+      $("#eventsList").innerHTML=filtered.length?filtered.map(eventCard).join(""):'<div class="empty">No encontramos eventos con esos criterios.</div>';
+    }
+    function requestCard(r){
+      const mine=hasRole("PROVEEDOR"), sub=(state.catalogs.supplier||[]).find(s=>s.id===r.supplier_id);
+      let html='<article class="request-card"><div class="row" style="justify-content:space-between"><h3>'+esc(r.service||"Servicio")+'</h3>'+chip(r.state)+'</div><p>Evento: <b>'+esc(r.event_id)+'</b> · '+esc(sub?.name||r.supplier_id)+'</p><p>Costo: '+esc(fmtMoney(r.cost))+' · Enviada: '+esc(String(r.sent_at||"").replace("T"," ").slice(0,16))+'</p>';
+      if(r.replaces)html+='<p class="small">Sustituye la solicitud '+esc(r.replaces)+'</p>';
+      if(mine&&r.state==="PENDIENTE")html+='<div class="row" style="margin-top:16px"><button class="btn primary small" data-request-action="supplier_accept" data-request-id="'+esc(r.id)+'">Aceptar</button><button class="btn outline small" data-request-action="supplier_reject" data-request-id="'+esc(r.id)+'">Rechazar</button></div>';
+      if(mine&&r.state==="CONFIRMADO")html+='<div class="row" style="margin-top:16px"><button class="btn danger small" data-request-action="supplier_cancel" data-request-id="'+esc(r.id)+'">Cancelar asignación</button></div>';
+      return html+'</article>';
+    }
+    function renderRequests(){
+      const mine=hasRole("PROVEEDOR");
+      let html=pageHead(mine?"Mis solicitudes":"Gestión de proveedores",mine?"Acepta o rechaza los servicios asignados a tu empresa.":"Consulta las solicitudes, sus estados y las asignaciones de servicios.",hasRole("COORDINADOR")?'<button class="btn primary" data-act="supplier_assign">+ Solicitar proveedor</button>':"");
+      if(hasRole("ADMIN","COORDINADOR"))html+='<div class="row" style="margin-bottom:18px"><button class="btn outline small" data-act="supplier_expire">Actualizar vencimientos</button><span class="muted small">Las solicitudes vencen a las 48 horas.</span></div>';
+      html+='<div class="list">'+(state.requests.length?state.requests.slice().reverse().map(requestCard).join(""):'<div class="empty">No hay solicitudes de proveedores para mostrar.</div>')+'</div>';
+      $("#panel").innerHTML=html;
+    }
+    function renderCatalogs(){
+      let html=pageHead("Catálogos","Consulta los recursos y proveedores disponibles para organizar eventos.");
+      const sets=[["resource","Recursos","description",["id","description","price","capacity"]],["supplier","Proveedores","name",["id","name","active","backup"]]];
+      if(hasRole("ADMIN","COORDINADOR"))sets.push(["client","Clientes","name",["id","name","city","active"]]);
+      for(const [key,title,label,columns] of sets){
+        const items=state.catalogs[key]||[];
+        html+='<div class="detail-card"><h3>'+esc(title)+' ('+items.length+')</h3><div class="table-wrap"><table><thead><tr>'+columns.map(k=>'<th>'+esc(({id:"Identificador",description:"Descripción",name:"Nombre",price:"Precio",capacity:"Capacidad",active:"Activo",backup:"Respaldo",city:"Ciudad"})[k]||k)+'</th>').join("")+'</tr></thead><tbody>'+items.map(item=>'<tr>'+columns.map(k=>'<td>'+esc(k==="price"?fmtMoney(item[k]):typeof item[k]==="boolean"?(item[k]?"Sí":"No"):item[k])+'</td>').join("")+'</tr>').join("")+'</tbody></table></div></div>';
+      }
+      $("#panel").innerHTML=html;
+    }
+    function detailValue(label,value){return '<div><div class="label">'+esc(label)+'</div><strong>'+esc(value===undefined||value===null?"—":value)+'</strong></div>';}
+    function availableActions(e){
+      const role=requireRole(),p=e.proposal||{},pending=(e.changes||[]).filter(c=>c.state==="PENDIENTE"),extras=e.extras||[];
+      let a=[];
+      if(["ADMIN","COORDINADOR"].includes(role)&&e.state==="BORRADOR"&&p.state==="BORRADOR")a.push("send");
+      if(role==="COORDINADOR"&&e.state==="BORRADOR"&&p.state==="BORRADOR")a.push("revise");
+      if(role==="CLIENTE"&&e.state==="BORRADOR"&&p.state==="ENVIADA")a.push("accept","reject");
+      if(role==="CLIENTE"&&e.state==="ACEPTADO"&&!e.contract)a.push("sign");
+      const remaining=Number(e.total||0)-(e.payments||[]).reduce((s,p)=>s+Number(p.amount||0),0);
+      if(role==="ADMIN"&&e.contract&&["ACEPTADO","CONFIRMADO","EN_EJECUCION","FINALIZADO"].includes(e.state)&&remaining>.001)a.push("pay");
+      if(["CLIENTE","COORDINADOR"].includes(role)&&e.state==="CONFIRMADO"&&!pending.length)a.push("change");
+      if(role==="ADMIN"&&pending.length)a.push("approve","reject_change");
+      if(role==="COORDINADOR"&&["CONFIRMADO","EN_EJECUCION"].includes(e.state))a.push("extra");
+      if(role==="ADMIN"&&extras.some(x=>!x.payment_reference))a.push("pay_extra");
+      if(role==="COORDINADOR"&&e.state==="EN_EJECUCION"&&extras.some(x=>x.payment_reference&&!x.delivered_at))a.push("deliver_extra");
+      if(role==="COORDINADOR"&&e.state==="CONFIRMADO")a.push("start");
+      if(role==="COORDINADOR"&&e.state==="EN_EJECUCION")a.push("finish");
+      if(role==="COORDINADOR"&&e.state==="FINALIZADO")a.push("close");
+      if(role==="ADMIN"&&["BORRADOR","ACEPTADO","CONFIRMADO"].includes(e.state))a.push("cancel");
+      return a;
+    }
+    function renderDetail(){
+      const e=state.current;if(!e){navigate("eventos");return;}
+      const paid=(e.payments||[]).reduce((sum,p)=>sum+Number(p.amount||0),0),balance=Number(e.total||0)-paid;
+      let html='<div class="page-head"><div><button class="btn outline small" data-nav="eventos">← Volver a eventos</button><p class="eyebrow" style="margin:17px 0 5px">Detalle del evento</p><h1>'+esc(e.title)+'</h1><p class="muted">Folio '+esc(e.id)+' · '+esc(fmtDate(e.event_date))+'</p></div>'+chip(e.state)+'</div>';
+      html+='<div class="stat-grid"><div class="stat"><span class="muted small">Total del evento</span><span class="number" style="font-size:1.55rem">'+esc(fmtMoney(e.total))+'</span></div><div class="stat"><span class="muted small">Pagos registrados</span><span class="number" style="font-size:1.55rem">'+esc(fmtMoney(paid))+'</span></div><div class="stat"><span class="muted small">Saldo pendiente</span><span class="number" style="font-size:1.55rem">'+esc(fmtMoney(balance))+'</span></div></div>';
+      html+='<div class="split"><div><div class="detail-card"><h3>Información del evento</h3><div class="detail-grid">'+detailValue("Cliente",e.client_id)+detailValue("Fecha",fmtDate(e.event_date))+detailValue("Invitados",e.guests)+detailValue("Estado de propuesta",displayStatus(e.proposal?.state))+detailValue("Menú",e.menu)+detailValue("Horario",e.schedule)+detailValue("Contrato",e.contract?.reference||"Pendiente")+detailValue("Versión",e.proposal?.versions?.at(-1)?.number||"—")+'</div></div>';
+      const versions=e.proposal?.versions||[];
+      html+='<div class="detail-card"><h3>Propuesta y versiones</h3>'+versions.slice().reverse().map(v=>'<div class="line"><span><b>Versión '+esc(v.number)+'</b><br><small class="muted">'+esc(v.reason||"")+' · '+esc((v.lines||[]).length)+' conceptos</small></span><strong>'+esc(fmtMoney(v.total))+'</strong></div>').join("")+'</div>';
+      if(e.changes?.length)html+='<div class="detail-card"><h3>Solicitudes de cambio</h3>'+e.changes.slice().reverse().map(c=>'<div class="line"><span><b>'+esc(c.id.slice(0,9))+'…</b> '+chip(c.state)+'<br><small class="muted">Incremento: '+esc(fmtMoney(c.data?.increment||0))+' · Cargo: '+esc(fmtMoney(c.evaluation?.charge||0))+'</small></span><span class="muted small">'+esc(c.data?.menu||c.data?.schedule||"Aforo: "+(c.data?.guests||"—"))+'</span></div>').join("")+'</div>';
+      if(e.extras?.length)html+='<div class="detail-card"><h3>Servicios adicionales</h3>'+e.extras.map(x=>'<div class="line"><span><b>'+esc(x.description)+'</b><br><small class="muted">'+(x.delivered_at?"Entregado":x.payment_reference?"Pagado · pendiente de entrega":"Pendiente de pago")+'</small></span><strong>'+esc(fmtMoney(x.amount))+'</strong></div>').join("")+'</div>';
+      if(e.payments?.length)html+='<div class="detail-card"><h3>Historial de pagos</h3>'+e.payments.map(p=>'<div class="line"><span>'+esc(p.reference)+' <small class="muted">'+esc(p.method)+'</small></span><strong>'+esc(fmtMoney(p.amount))+'</strong></div>').join("")+'</div>';
+      html+='</div><aside><div class="detail-card"><h3>Acciones disponibles</h3><p class="hint">Solo se muestran las acciones permitidas para tu perfil y la etapa del evento. El servidor verifica además las reglas del negocio.</p><div class="action-grid">'+(availableActions(e).map(a=>'<button class="btn '+(["cancel","reject","reject_change"].includes(a)?"danger":"outline")+' small" data-act="'+esc(a)+'">'+esc(actions[a][0])+'</button>').join("")||'<span class="muted small">No hay acciones disponibles en esta etapa.</span>')+'</div></div>';
+      if(hasRole("ADMIN","COORDINADOR"))html+='<div class="detail-card"><h3>Seguimiento</h3><div class="stack"><button class="btn outline full" data-detail-extra="audit">Ver auditoría</button>'+(hasRole("ADMIN")?'<button class="btn outline full" data-detail-extra="profit">Ver rentabilidad</button>':"")+'<div id="detailExtra"></div></div></div>';
+      html+='<div class="detail-card"><h3>¿Necesitas ayuda?</h3><p class="muted small">Consulta la guía del equipo. Los pagos son registros de comprobantes, no movimientos bancarios reales.</p><a href="/docs" target="_blank" rel="noopener noreferrer" class="tag-link">Documentación técnica ↗</a></div></aside></div>';
+      $("#panel").innerHTML=html;
+    }
+    async function showExtra(type){
+      const out=$("#detailExtra");out.innerHTML='<p class="muted small">Consultando…</p>';
+      try{
+        if(type==="profit"){
+          const d=await api("/events/"+encodeURIComponent(state.currentId)+"/profitability");
+          out.innerHTML='<div class="detail-grid">'+detailValue("Ingresos cotizados",fmtMoney(d.income))+detailValue("Cobrado",fmtMoney(d.collected))+detailValue("Costo proveedores",fmtMoney(d.supplier_cost))+detailValue("Margen cotizado",fmtMoney(d.margin))+'</div>';
+        }else{
+          const d=await api("/events/"+encodeURIComponent(state.currentId)+"/audit");
+          out.innerHTML=d.length?d.slice().reverse().slice(0,30).map(x=>'<div class="line"><div><strong>'+esc(x.name)+'</strong><br><span class="small muted">'+esc(x.actor)+' · '+esc(String(x.at).slice(0,19).replace("T"," "))+'</span></div></div>').join(""):'<p class="muted small">No hay movimientos registrados.</p>';
+        }
+      }catch(e){out.innerHTML='<div class="alert">'+esc(e.message)+'</div>';}
+    }
+    async function openEvent(id){
+      try{state.currentId=id;state.current=await api("/events/"+encodeURIComponent(id));navigate("detalle");}
+      catch(e){toast(e.message);}
+    }
+    function render(){if(!state.user)return;switch(state.view){case "eventos":renderEvents();break;case "solicitudes":renderRequests();break;case "catalogos":renderCatalogs();break;case "detalle":renderDetail();break;default:renderDashboard();}}
+    document.addEventListener("input",e=>{if(e.target.id==="searchEvents")filterEvents(e.target.value);});
+    document.addEventListener("click",async e=>{
+      const nav=e.target.closest("[data-nav]");
+      if(nav){e.preventDefault();navigate(nav.dataset.nav);return;}
+      const opening=e.target.closest("[data-open-event]");
+      if(opening){await openEvent(opening.dataset.openEvent);return;}
+      const detail=e.target.closest("[data-detail-extra]");
+      if(detail){await showExtra(detail.dataset.detailExtra);return;}
+      const request=e.target.closest("[data-request-action]");
+      if(request){openModal(request.dataset.requestAction,request.dataset.requestId);return;}
+      const act=e.target.closest("[data-act]");
+      if(act){openModal(act.dataset.act);}
+    });
+    function field(name,label,opts={}){
+      const type=opts.type||"text",v=opts.value===undefined?"":opts.value;
+      if(type==="select"){
+        return '<label class="field">'+esc(label)+'<select name="'+esc(name)+'"'+(opts.required===false?"":" required")+'>'+((opts.options||[]).map(o=>'<option value="'+esc(o[0])+'">'+esc(o[1])+'</option>').join(""))+'</select></label>';
+      }
+      if(type==="textarea")return '<label class="field">'+esc(label)+'<textarea name="'+esc(name)+'"'+(opts.required===false?"":" required")+' placeholder="'+esc(opts.placeholder||"")+'">'+esc(v)+'</textarea></label>';
+      return '<label class="field">'+esc(label)+'<input name="'+esc(name)+'" type="'+esc(type)+'" value="'+esc(v)+'"'+(opts.required===false?"":" required")+(opts.min===undefined?"":' min="'+esc(opts.min)+'"')+(opts.step===undefined?"":' step="'+esc(opts.step)+'"')+' placeholder="'+esc(opts.placeholder||"")+'"></label>';
+    }
+    const moneyOpts={type:"number",min:"0",step:"0.01"};
+    const methodOptions=[["TRANSFERENCIA","Transferencia"],["TERMINAL","Terminal"],["EFECTIVO","Efectivo"]];
+    function selectOptions(list,labelField){return list.map(x=>[x.id,x.id+" · "+(x[labelField]||x.name||x.description||"")]);}
+    function itemsMarkup(items){
+      const resources=(state.catalogs.resource||[]).filter(x=>x.enabled);
+      return '<p class="muted small">Selecciona los recursos de la propuesta y sus cantidades.</p><div id="itemRows"></div><button type="button" class="btn outline small" id="addItem">+ Agregar recurso</button>'+(resources.length?"":'<div class="alert">No hay recursos disponibles en este catálogo.</div>');
+    }
+    function addItemRow(id="",quantity=1){
+      const resources=(state.catalogs.resource||[]).filter(x=>x.enabled);
+      const row=document.createElement("div");row.className="item-row";
+      row.innerHTML='<select class="resource-select" aria-label="Recurso" required>'+resources.map(r=>'<option value="'+esc(r.id)+'"'+(r.id===id?" selected":"")+'>'+esc(r.description)+' · '+esc(fmtMoney(r.price))+'</option>').join("")+'</select><input class="item-quantity" type="number" min="1" step="1" max="100000" value="'+esc(quantity)+'" aria-label="Cantidad" required><button class="btn outline small" type="button" aria-label="Quitar recurso" data-remove-item>×</button>';
+      $("#itemRows").append(row);
+    }
+    function modalFields(type){
+      const e=state.current||{},p=e.proposal||{},pend=(e.changes||[]).filter(x=>x.state==="PENDIENTE"),extras=e.extras||[];
+      if(type==="new_event")return field("id","Folio opcional",{required:false,placeholder:"Se genera automáticamente si lo dejas vacío"})+field("title","Nombre del evento",{placeholder:"Ej. Graduación Facultad"})+field("client_id","Cliente",{type:"select",options:selectOptions((state.catalogs.client||[]).filter(x=>x.active),"name")})+field("event_date","Fecha del evento",{type:"date",min:new Date().toLocaleDateString("en-CA")})+field("guests","Número de invitados",{type:"number",min:1,step:1})+itemsMarkup();
+      if(type==="revise")return field("reason","Motivo de la revisión",{type:"textarea",placeholder:"¿Qué cambió?"})+itemsMarkup(e.proposal?.versions?.at(-1)?.lines);
+      if(type==="pay")return field("amount","Importe en MXN",moneyOpts)+field("reference","Referencia de pago")+field("method","Método de pago",{type:"select",options:methodOptions});
+      if(type==="sign")return field("reference","Referencia del contrato",{placeholder:"CONTRATO-001"});
+      if(type==="reject"||type==="cancel"||type==="supplier_cancel")return field("reason","Motivo",{type:"textarea"});
+      if(type==="change")return '<p class="hint">Indica al menos un cambio en aforo, menú u horario.</p>'+field("guests","Nuevo número de invitados (opcional)",{type:"number",min:1,step:1,required:false})+field("menu","Nuevo menú (opcional)",{required:false})+field("schedule","Nuevo horario (opcional)",{required:false})+field("increment","Incremento cotizado en MXN",{...moneyOpts,value:"0.00"});
+      if(type==="approve")return field("change_id","Cambio pendiente",{type:"select",options:pend.map(x=>[x.id,x.id.slice(0,9)+"… · "+fmtMoney(x.data?.increment||0)])});
+      if(type==="reject_change")return field("change_id","Cambio pendiente",{type:"select",options:pend.map(x=>[x.id,x.id.slice(0,9)+"…"])})+field("reason","Motivo del rechazo",{type:"textarea"});
+      if(type==="extra")return field("description","Nombre del servicio")+field("amount","Costo adicional en MXN",moneyOpts);
+      if(type==="pay_extra")return field("extra_id","Servicio adicional",{type:"select",options:extras.filter(x=>!x.payment_reference).map(x=>[x.id,x.description+" · "+fmtMoney(x.amount)])})+field("reference","Referencia del pago")+field("method","Método",{type:"select",options:methodOptions.filter(x=>x[0]!=="EFECTIVO")});
+      if(type==="deliver_extra")return field("extra_id","Servicio pagado",{type:"select",options:extras.filter(x=>x.payment_reference&&!x.delivered_at).map(x=>[x.id,x.description])});
+      if(type==="close")return field("act","Acta de cierre",{type:"textarea",placeholder:"Referencia y observaciones"});
+      if(type==="supplier_assign"){
+        const allowed=state.events.filter(x=>x.state==="CONFIRMADO");
+        const old=state.requests.filter(x=>["RECHAZADO","EXPIRADO","CANCELADO"].includes(x.state));
+        return field("event_id","Evento confirmado",{type:"select",options:selectOptions(allowed,"title")})+field("supplier_id","Proveedor",{type:"select",options:selectOptions((state.catalogs.supplier||[]).filter(x=>x.active),"name")})+field("service","Servicio solicitado",{placeholder:"Ej. Banquete"})+field("cost","Costo cotizado en MXN",moneyOpts)+field("replaces","Sustituir solicitud (opcional)",{type:"select",required:false,options:[["","Sin sustitución"],...old.map(x=>[x.id,x.service+" · "+x.id.slice(0,8)])]});
+      }
+      return '<p class="hint">Confirma para continuar. Esta operación modificará los datos del sistema.</p>';
+    }
+    function openModal(type,requestId=""){
+      if(!state.user||!actions[type])return;
+      state.modal={type,requestId};
+      $("#modalTitle").textContent=actions[type][0];
+      $("#modalHelp").textContent=actions[type][1];
+      $("#modalError").hidden=true;
+      $("#modalFields").innerHTML=modalFields(type);
+      if(type==="new_event"||type==="revise"){
+        const lines=type==="revise"?state.current?.proposal?.versions?.at(-1)?.lines||[]:[];
+        (lines.length?lines:[{resource_id:"",quantity:1}]).forEach(x=>addItemRow(x.resource_id,x.quantity));
+      }
+      $("#submitModal").textContent=["supplier_accept","supplier_reject","supplier_cancel","cancel","reject","reject_change"].includes(type)?"Confirmar":"Guardar cambios";
+      $("#modal").showModal();
+    }
+    $("#cancelModal").addEventListener("click",()=>$("#modal").close());
+    $("#modal").addEventListener("close",()=>{state.modal=null;});
+    $("#modalFields").addEventListener("click",e=>{
+      if(e.target.id==="addItem")addItemRow();
+      if(e.target.closest("[data-remove-item]")){
+        if($$("#itemRows .item-row").length<=1){toast("La propuesta necesita al menos un recurso.");return;}
+        e.target.closest(".item-row").remove();
+      }
+    });
+    function formBody(type,fd){
+      const obj=Object.fromEntries(fd.entries());
+      if(type==="new_event"||type==="revise"){
+        const items=$$("#itemRows .item-row").map(row=>({resource_id:$(".resource-select",row).value,quantity:Number($(".item-quantity",row).value)}));
+        if(!items.length||items.some(x=>!x.resource_id||!Number.isInteger(x.quantity)||x.quantity<1))throw Error("Selecciona recursos y cantidades válidas.");
+        if(new Set(items.map(x=>x.resource_id)).size!==items.length)throw Error("No puedes agregar el mismo recurso dos veces.");
+        if(type==="revise")return {reason:obj.reason,items};
+        const data={title:obj.title,client_id:obj.client_id,event_date:obj.event_date,guests:Number(obj.guests),items};if(obj.id?.trim())data.id=obj.id.trim();return data;
+      }
+      if(type==="change"){
+        const data={increment:obj.increment};if(obj.guests)data.guests=Number(obj.guests);if(obj.menu?.trim())data.menu=obj.menu.trim();if(obj.schedule?.trim())data.schedule=obj.schedule.trim();
+        if(!("guests" in data)&&!("menu" in data)&&!("schedule" in data))throw Error("Modifica aforo, menú u horario.");return data;
+      }
+      if(type==="supplier_assign"){if(!obj.replaces)delete obj.replaces;return obj;}
+      return obj;
+    }
+    $("#actionForm").addEventListener("submit",async ev=>{
+      ev.preventDefault();if(!state.modal)return;
+      const b=$("#submitModal"),err=$("#modalError"),type=state.modal.type,requestId=state.modal.requestId;
+      err.hidden=true;const label=b.textContent;
+      try{
+        const body=formBody(type,new FormData(ev.currentTarget));
+        let path,method="POST",payload=body;
+        if(type==="new_event")path="/events";
+        else if(type==="supplier_assign"){path="/events/"+encodeURIComponent(body.event_id)+"/requests";delete payload.event_id;}
+        else if(type==="supplier_expire"){path="/requests/expire";payload=undefined;}
+        else if(type.startsWith("supplier_")){
+          path="/requests/"+encodeURIComponent(requestId)+"/"+(type==="supplier_cancel"?"cancel":"respond");
+          payload=type==="supplier_cancel"?body:{accepted:type==="supplier_accept"};
+        }else path="/events/"+encodeURIComponent(state.currentId)+"/"+type;
+        if(["cancel","supplier_cancel","reject"].includes(type)&&!confirm("¿Confirmas que deseas continuar?"))return;
+        setBusy(b,true,label);
+        const result=await api(path,{method,body:payload});
+        $("#modal").close();
+        await loadData();
+        if(type==="new_event"){state.currentId=result.id;state.current=result;navigate("detalle");}
+        else if(state.view==="detalle"&&!hasRole("PROVEEDOR")){state.current=await api("/events/"+encodeURIComponent(state.currentId));renderDetail();}
+        else render();
+        toast("Operación realizada correctamente.");
+      }catch(e){showError(err,e);}
+      finally{setBusy(b,false,label);}
+    });
+  </script>
+</body>
+</html>

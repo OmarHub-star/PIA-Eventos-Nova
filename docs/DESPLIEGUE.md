@@ -19,6 +19,12 @@ Render sustituye la necesidad de instalar Python o dependencias **en el equipo q
 
 Se conserva `render.yaml` para documentar el despliegue como infraestructura declarativa y `docker-compose.yml` porque la etapa de pruebas con PostgreSQL de GitHub Actions todavía lo utiliza. El `Dockerfile`, `scripts/serve.py`, `scripts/init_env.py`, `src/`, `tests/` y los seis CSV originales siguen siendo necesarios para ejecución, pruebas o evidencias.
 
+## Interfaz web de usuarios
+
+La ruta `/` sirve la interfaz estática `src/api/web/index.html` por medio de FastAPI (FileResponse). La aplicación de navegador usa `fetch` contra la API del **mismo origen**, con cabecera `Authorization: Bearer ...` y permisos validados por el backend. El acceso con token se hace mediante `/me`, sin crear ni exponer nuevas credenciales. No se guarda el token en almacenamiento del navegador.
+
+Esta interfaz forma parte de `src/`, por lo que la copia `COPY src ./src` del `Dockerfile` ya incluye el frontend. No requiere Node.js, npm, servicios extra ni cambios en PostgreSQL. Swagger `/docs`, `/health` y los endpoints originales siguen operando.
+
 ## 2. Variables y seguridad
 
 | Variable | Función |

@@ -3,9 +3,10 @@ import hmac
 import json
 import os
 from contextlib import asynccontextmanager, suppress
+from pathlib import Path
 
 from fastapi import Depends, FastAPI, HTTPException
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy import text
 
@@ -66,74 +67,10 @@ def create_app(database_url=None, tokens=None, clock=None, seed_data=None):
     app.state.service = service
     bearer = HTTPBearer(auto_error=False)
 
-    @app.get("/", response_class=HTMLResponse, include_in_schema=False)
+    @app.get("/", include_in_schema=False)
     def home():
-        return """<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portal del sistema de gestión de eventos Eventos Nova, PIA Equipo 16.">
-  <title>Eventos Nova | PIA Equipo 16</title>
-  <style>
-    :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; color: #f5f7ff;
-      background: radial-gradient(circle at 90% 10%, #273e69 0, transparent 38%),
-                  radial-gradient(circle at 10% 90%, #27305a 0, transparent 40%), #0b1223; }
-    .wrap { max-width: 980px; margin: auto; padding: 28px 24px 64px; }
-    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-size: 19px; font-weight: 800; }
-    .mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px;
-      background: linear-gradient(135deg, #9a76ff, #44d9d0); color: #10152c; }
-    .eyebrow { color: #9db4ff; font-size: 13px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-    main { padding-top: 100px; }
-    h1 { font-size: clamp(42px, 7vw, 74px); line-height: 1.08; letter-spacing: -.045em; margin: 16px 0 22px; }
-    .highlight { color: #83e4dd; }
-    .intro { max-width: 640px; font-size: 19px; line-height: 1.7; color: #c8d0e5; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 34px 0 56px; }
-    a.button { display: inline-flex; align-items: center; justify-content: center; padding: 15px 23px;
-      border-radius: 12px; font-weight: 750; text-decoration: none; min-height: 52px; }
-    .primary { background: #8ceee4; color: #0b1827; }
-    .secondary { color: #f5f7ff; border: 1px solid #52617e; background: #ffffff0d; }
-    a:focus-visible { outline: 3px solid #ffd68a; outline-offset: 4px; }
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .card { border: 1px solid #354361; border-radius: 18px; padding: 24px; background: #ffffff0a; }
-    .card h2 { font-size: 17px; margin: 0 0 10px; }
-    .card p { margin: 0; line-height: 1.55; color: #b9c4dc; font-size: 14px; }
-    footer { margin-top: 58px; padding-top: 22px; border-top: 1px solid #34405b; color: #aab6cc; font-size: 13px; }
-    @media (max-width: 650px) { main { padding-top: 66px; } .cards { grid-template-columns: 1fr; } }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand"><span class="mark" aria-hidden="true">✦</span> Eventos Nova</div>
-      <span class="eyebrow">PIA · Equipo 16</span>
-    </header>
-    <main>
-      <div class="eyebrow">Sistema de gestión de eventos</div>
-      <h1>Tu evento,<br><span class="highlight">nuestra organización.</span></h1>
-      <p class="intro">Plataforma académica para administrar propuestas, contrataciones,
-      proveedores y seguimiento de eventos mediante una API REST desarrollada con FastAPI.</p>
-      <div class="actions">
-        <a class="button primary" href="/docs">Explorar API / Swagger</a>
-        <a class="button secondary" href="/health">Ver estado del sistema</a>
-      </div>
-      <div class="cards" aria-label="Funciones del sistema">
-        <section class="card"><h2>📅 Eventos</h2>
-          <p>Consulta, creación y seguimiento del ciclo de vida de cada evento.</p></section>
-        <section class="card"><h2>🤝 Proveedores</h2>
-          <p>Solicitudes, asignaciones y respuestas para coordinar los servicios.</p></section>
-        <section class="card"><h2>📊 Administración</h2>
-          <p>Auditoría, cambios, pagos y consulta de rentabilidad de eventos.</p></section>
-      </div>
-    </main>
-    <footer>Eventos Nova · Proyecto Integrador de Aprendizaje · Equipo 16
-      · <a href="/openapi.json" style="color:#9febe4">Especificación OpenAPI</a></footer>
-  </div>
-</body>
-</html>"""
+        """Interfaz de usuario estática servida desde el mismo contenedor de la API."""
+        return FileResponse(Path(__file__).resolve().parent / "web" / "index.html")
 
     def authenticated(auth: HTTPAuthorizationCredentials | None = Depends(bearer)):
         if auth:

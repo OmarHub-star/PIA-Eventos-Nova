@@ -6,9 +6,9 @@ Aplicación de coordinación de bodas, graduaciones y eventos empresariales. Imp
 
 ## Acceso público a Eventos Nova (Render)
 
-**Uso principal: no es necesario instalar Python, Docker ni dependencias en el equipo de quien utiliza la API.** El servicio se ejecuta en Render y se puede consultar desde el navegador.
+**Uso principal: portal web para clientes, coordinación, proveedores y administración.** No necesitas instalar Python, Docker ni dependencias en el equipo para utilizar la aplicación: el servidor y la API se ejecutan en Render.
 
-- [Página de inicio de Eventos Nova](https://eventos-nova-pia-cv0t.onrender.com/)
+- **[Abrir interfaz de usuario de Eventos Nova]**(https://eventos-nova-pia-cv0t.onrender.com/)
 - [Swagger UI — documentación y pruebas de la API](https://eventos-nova-pia-cv0t.onrender.com/docs)
 - [Especificación OpenAPI](https://eventos-nova-pia-cv0t.onrender.com/openapi.json)
 - [Estado de la aplicación y base de datos](https://eventos-nova-pia-cv0t.onrender.com/health)
@@ -16,11 +16,11 @@ Aplicación de coordinación de bodas, graduaciones y eventos empresariales. Imp
 
 ### Acceso y roles
 
-Swagger es público para consulta, pero las rutas de negocio están protegidas por autenticación Bearer. El responsable del sistema proporciona un token distinto para cada identidad/rol: **ADMIN**, **COORDINADOR**, **CLIENTE** y **PROVEEDOR**. Usa **Authorize** en Swagger y cambia de token cuando cambies de actor durante la demostración.
+El **portal web** muestra formularios y botones de acuerdo con cada rol. El responsable del sistema proporciona un token distinto para cada identidad: **ADMIN**, **COORDINADOR**, **CLIENTE** y **PROVEEDOR**. Para entrar en el portal, pega el token en el campo de acceso. El portal verifica el rol contra `/me` y utiliza la API existente en segundo plano. Swagger es opcional para inspección técnica; sus rutas de negocio están igualmente protegidas con Bearer.
 
-Los tokens reales están configurados fuera del repositorio, en la variable de entorno `TOKENS_JSON` de Render. **No publiques tokens, contraseñas, el archivo `.env` ni capturas que revelen credenciales.** La plantilla `.env.example` solo contiene identificadores de reemplazo; no autoriza peticiones. Los tokens que hayan sido compartidos deben rotarse antes de una entrega con datos no ficticios.
+La interfaz no genera contraseñas ni usuarios y no almacena el token en `localStorage` o `sessionStorage`: la clave se mantiene solo en memoria y se pierde al actualizar la página o cerrar sesión. Los tokens reales están configurados fuera del repositorio, en la variable de entorno `TOKENS_JSON` de Render. **No publiques tokens, contraseñas, el archivo `.env` ni capturas que revelen credenciales.** La plantilla `.env.example` solo contiene identificadores de reemplazo; no autoriza peticiones. Los tokens que hayan sido compartidos deben rotarse antes de una entrega con datos no ficticios.
 
-Recorrido guiado por roles y reglas: [docs/DEMO.md](docs/DEMO.md). La API es el sistema funcional; Swagger sirve como interfaz técnica de demostración. Las notificaciones se registran internamente y no se envían por correo.
+Recorrido guiado por roles y reglas: [docs/DEMO.md](docs/DEMO.md). El portal es el frontend funcional, FastAPI es el backend y Swagger queda como interfaz técnica de demostración. Las notificaciones se registran internamente y no se envían por correo.
 
 ### Ejecución local opcional (desarrollo y pruebas)
 
@@ -61,7 +61,7 @@ python scripts/evaluate_csv.py
 - `src/domain`: `Event`, `Proposal`, `SupplierRequest`, `Money`, `Line`, Specifications, política de cambios y máquina de estados.
 - `src/application`: casos de uso, puertos, reloj e identidad autenticada.
 - `src/infrastructure`: SQLAlchemy, unidad de trabajo, registro de eventos, reservas de proveedores, importador y temporizador.
-- `src/api`: esquemas Pydantic y endpoints FastAPI.
+- `src/api`: esquemas Pydantic, endpoints FastAPI y `web/index.html` (interfaz de usuario HTML/CSS/JavaScript, servida desde `/`).
 - `docs`: BRD, historias/Gherkin, BPMN, glosario, arquitectura, ADR, OpenAPI, trazabilidad, evidencia, despliegue y defensa.
 - `data/original`: los seis CSV del paquete del alumno, conservados sin modificación.
 - `tests`: pruebas unitarias, integración y adaptación de CSV.
