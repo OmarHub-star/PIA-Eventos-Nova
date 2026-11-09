@@ -1,6 +1,5 @@
 """La interfaz web convive con la API segura sin modificar los permisos."""
 
-
 from tests.conftest import auth
 
 
