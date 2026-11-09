@@ -1,50 +1,56 @@
-# Publicación y verificación
+# Despliegue y operación de Eventos Nova
 
-## Estado de esta entrega
+## Estado real del proyecto
 
-Aplicación verificada localmente y en GitHub Actions según `evidencias/RESUMEN.md`. La ejecución remota #1 aprobó PostgreSQL, Docker y las 270 pruebas en contenedores, con 97.48% de cobertura, sobre el commit `9fb4b061f4af1b2713ccfb8cfbe313578bf0368e`. No hay URL pública: la llamada de despliegue del pipeline se omitió por falta de destino.
+- **Repositorio:** [PIA-Eventos-Nova](https://github.com/OmarHub-star/PIA-Eventos-Nova), público y con rama principal `main`.
+- **Servicio de Render:** [eventos-nova-pia-cv0t](https://dashboard.render.com/web/srv-dbn6m9ec6qcc73cqj5pg).
+- **Aplicación:** https://eventos-nova-pia-cv0t.onrender.com/
+- **Swagger:** https://eventos-nova-pia-cv0t.onrender.com/docs
+- **OpenAPI:** https://eventos-nova-pia-cv0t.onrender.com/openapi.json
+- **Salud:** https://eventos-nova-pia-cv0t.onrender.com/health
 
-Repositorio creado: https://github.com/OmarHub-star/PIA-Eventos-Nova (privado). El usuario autorizó la carga del proyecto completo y delegó la selección del alojamiento. Se seleccionó Render Free para App y PostgreSQL; el YAML fija ambos planes explícitamente. La base gratuita vence a los 30 días y el servicio puede suspenderse tras 15 minutos sin uso. El temporizador de vencimientos retoma su revisión cuando el servicio vuelve a estar activo; la validación del límite de respuesta se aplica siempre al procesar la solicitud. Fuente vigente: https://render.com/docs/free.
+**Última verificación previa a la limpieza (7 de noviembre de 2026):** Render confirmó el despliegue `dep-dbnbgdi9lscs73bsmd10` en estado `live`, asociado al commit `e1f43a15dfea9a9d2aef87daabfc2bce6881c986`. La ejecución [GitHub Actions 42343111534](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions/runs/42343111534) terminó satisfactoriamente. Cada modificación posterior requiere una nueva verificación antes de afirmar que está publicada.
 
-## 1. Repositorio GitHub
+## 1. ¿Qué utiliza Render?
 
-El equipo indica un repositorio para el PIA, preferentemente independiente de los laboratorios U4/U5. Agrega el contenido de esta carpeta a su raíz, incluidos `.github`, `.env.example`, Dockerfile y los documentos. Nunca agregues `.env`, bases con datos reales ni tokens. El pipeline se activa con push o pull request. Registra el enlace de la ejecución verde y el SHA realmente presentado.
+El servicio es de tipo **Web Service / Docker** y construye la aplicación con `Dockerfile`, que instala `requirements.txt` y ejecuta `python scripts/serve.py`. La configuración de Render sigue la rama `main` y permite despliegue automático tras superar las comprobaciones de GitHub (`checksPass`). La ruta de salud configurada es `/health`.
 
-```bash
-git init -b main
-git add .
-git commit -m "Integrar PIA de Eventos Nova con pruebas y documentación"
-# Configura el remote con la URL real elegida por el equipo y realiza el push.
-```
+Render sustituye la necesidad de instalar Python o dependencias **en el equipo que usa la aplicación**, pero no elimina la instalación dentro del contenedor. Los archivos `EJECUTAR_WINDOWS.bat` y `EJECUTAR_LINUX_MAC.sh` eran accesos directos para desarrollo local; no son parte de la operación en la nube.
 
-Los commits deben ser reales y con autoría correcta. No reconstruyas contribuciones ni fechas ficticias. Si se conserva el historial preparado, revisa `historial_preparacion.bundle` y sus instrucciones antes de importar. El equipo documenta sus cambios posteriores.
+Se conserva `render.yaml` para documentar el despliegue como infraestructura declarativa y `docker-compose.yml` porque la etapa de pruebas con PostgreSQL de GitHub Actions todavía lo utiliza. El `Dockerfile`, `scripts/serve.py`, `scripts/init_env.py`, `src/`, `tests/` y los seis CSV originales siguen siendo necesarios para ejecución, pruebas o evidencias.
 
-## 2. Comprobación de contenedores
+## 2. Variables y seguridad
 
-Ejecuta `python scripts/init_env.py`, después `docker compose --profile quality up --build --abort-on-container-exit --exit-code-from tests`. Espera salida 0 de Tests. Se ejecutan pruebas de PostgreSQL y HTTP real adicionales a SQLite. Comprueba que App está saludable. Guarda el log real, fecha y commit. No publiques las variables ni tokens en capturas.
+| Variable | Función |
+| --- | --- |
+| `DATABASE_URL` | Conexión a PostgreSQL; debe configurarse de forma segura en el servicio. |
+| `TOKENS_JSON` | Mapa de tokens Bearer a identidades y roles. Es un secreto; no guardarlo en Git. |
+| `SEED_DATA` | Permite inicializar el catálogo y los datos de demostración cuando está habilitado. |
+| `PORT` | Puerto de escucha; Render o el contenedor proporcionan el valor correspondiente. |
+| `EXPIRY_INTERVAL_SECONDS` | Frecuencia opcional de revisión de solicitudes vencidas; valor por defecto del código: 60 segundos. |
 
-## 3. Plataforma de despliegue
+Los tokens se administran mediante variables de entorno privadas en Render y se distribuyen por separado a los usuarios autorizados. Swagger `/docs` es accesible sin clave, pero los endpoints de negocio protegidos requieren el botón **Authorize** y un token Bearer válido. Los roles implementados son `ADMIN`, `COORDINADOR`, `CLIENTE` y `PROVEEDOR`. Nunca incluir credenciales reales en capturas ni en archivos del repositorio. Regenerar las credenciales que hayan quedado expuestas.
 
-Se incluye un Dockerfile y `render.yaml` como configuración propuesta. La plataforma deberá aceptar una aplicación Python con conexión PostgreSQL, una variable `PORT` y persistencia. Revisa disponibilidad del plan y costos en tu cuenta antes de activar recursos. También puedes usar cualquier plataforma equivalente admitida por el profesor.
+## 3. Flujo de cambios y publicación
 
-Variables necesarias: `DATABASE_URL` (PostgreSQL), `TOKENS_JSON` (identidades con tokens aleatorios), `SEED_DATA=true` para demostración ficticia, `PORT` suministrado por hosting y opcional `EXPIRY_INTERVAL_SECONDS=60`. Las URLs `postgresql://` se normalizan al driver psycopg3. El repositorio no contiene secretos reales.
+1. Revisar o modificar el código en GitHub, rama `main` (o mediante una rama de trabajo y pull request).
+2. GitHub Actions ejecuta comprobaciones con Ruff, pruebas pytest y verificación de los 140 casos CSV adaptados.
+3. La etapa `containers` construye Docker Compose y ejecuta pruebas contra PostgreSQL; exige una cobertura mínima del 80 %.
+4. Render, conectado a GitHub, despliega automáticamente los cambios que satisfacen sus verificaciones. **No hace falta crear un nuevo servicio ni iniciar un despliegue manual si Auto Deploy ya está habilitado.**
+5. Comprobar en Render que el despliegue correspondiente al último commit esté en estado `Live`; después comprobar `/`, `/health`, `/docs` y `/openapi.json`.
 
-La API no implementa un formulario para generar usuarios. Genera los tokens por identidad con `init_env.py` y transfiere exclusivamente el JSON al panel de variables del servicio. El archivo local permanece fuera de Git. Configura una sola réplica/worker para el temporizador de esta demo.
+El workflow contiene también un job `deploy` con hook opcional `RENDER_DEPLOY_HOOK`. Si no hay hook, ese paso se omite; no significa que Render esté desconectado, pues el servicio tiene integración GitHub propia. No se deben compartir hooks privados.
 
-## 4. CD tras pruebas
+## 4. Desarrollo y comprobación local (opcional)
 
-Desactiva un despliegue automático que no espere a los checks y configura el secreto de GitHub `RENDER_DEPLOY_HOOK` con el hook privado del servicio, si utilizas esa modalidad. El job deploy solo lo invoca en main y tras quality y containers. La aceptación del hook solicita un despliegue, no certifica que haya terminado correctamente. Verifica el estado y el endpoint real antes de afirmar que está publicado.
+Solo es necesario para desarrollo, depuración o reproducir las pruebas fuera de Render. Python 3.12, `requirements.txt`, `scripts/init_env.py` y `scripts/serve.py` permiten ejecutar una instancia local; el archivo `.env` generado queda excluido de Git. Las pruebas de integración completas utilizan `docker-compose.yml` y PostgreSQL. Nunca ejecutar `docker compose down -v` sobre una base cuyos datos deban conservarse.
 
-## 5. Evidencia de producción
+## 5. Evidencias para el PIA
 
-Registra en README: URL real del repositorio, SHA, URL del sistema, `/health`, `/docs` y `/openapi.json`, fecha y enlace a Actions. Recorre la demo contra esa URL. Captura estados válidos, un rechazo 409/422 y un flujo persistido tras reinicio. Usa datos ficticios y oculta los tokens. Entrega la misma versión que se presenta.
+Presentar enlaces reales del repositorio y el despliegue, el commit exacto, una ejecución aprobada de GitHub Actions, estado `Live` en Render, `/health`, Swagger y ejemplos de reglas de negocio y permisos. Para la demostración se usan datos ficticios y se ocultan los tokens.
 
-## 6. Operación
+Los registros históricos de `docs/evidencias/` documentan ejecuciones anteriores; el estado vigente debe comprobarse en [GitHub Actions](https://github.com/OmarHub-star/PIA-Eventos-Nova/actions) y [Render](https://dashboard.render.com/web/srv-dbn6m9ec6qcc73cqj5pg). El recorrido recomendado está en [DEMO.md](DEMO.md).
 
-Conservar el volumen de PostgreSQL. Realizar backup antes de cambiar la estructura JSON. Esta versión inicial usa `metadata.create_all`, no un sistema de migraciones para esquemas productivos existentes. El temporizador vuelve a evaluar vencimientos al estar en ejecución; tras una caída, el siguiente ciclo recupera las solicitudes pendientes vencidas. La aceptación vencida siempre se rechaza por la regla del dominio.
+## 6. Limitaciones operativas
 
-### Conexión pendiente de GitHub a Render
-
-El usuario confirmó Omar's workspace. El intento de crear el Blueprint devolvió `the repository, branch, or Blueprint file could not be accessed`; no se crearon recursos. El archivo render.yaml está confirmado en GitHub. Abre https://dashboard.render.com/u/settings y, en Account Security > Git Deployment Credentials, agrega GitHub. Comprueba que la aplicación Render tenga permiso para PIA-Eventos-Nova en https://github.com/apps/render/installations/new. Después se puede volver a planificar el Blueprint y revisar los dos planes Free antes de aplicar. Fuente: https://render.com/docs/git-provider.
-
-La CLI oficial v2.36.0 se instaló en el entorno de preparación; su validación requiere autenticar esa CLI por separado. No se afirma validación de CLI completada. La conexión del plugin Render se comprobó mediante la lectura del espacio y sus recursos.
+El plan gratuito puede suspender el servicio por inactividad y tiene límites de almacenamiento/retención sujetos a las condiciones vigentes de Render. Verificar el servicio antes de la defensa. El esquema actual se prepara con `metadata.create_all`; no sustituye un sistema de migraciones de producción. Las reglas de caducidad se verifican al procesar solicitudes y mediante el temporizador cuando el servicio está ejecutándose. Respaldar cualquier base con datos que se necesiten conservar.
